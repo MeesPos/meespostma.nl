@@ -6,6 +6,8 @@
 
                 <slot />
             </div>
+
+            <Footer />
         </div>
     </div>
 </template>
