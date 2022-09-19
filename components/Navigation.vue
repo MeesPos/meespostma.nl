@@ -1,6 +1,6 @@
 <template>
-    <section class="w-full px-8 text-gray-700 bg-white tails-selected-element">
-        <div class="container flex flex-col flex-wrap items-center justify-between py-8 mx-auto md:flex-row max-w-7xl">
+    <section class="w-full text-gray-700 bg-white tails-selected-element">
+        <div class="container flex flex-col flex-wrap items-center justify-between py-8 mx-auto md:flex-row">
             <div class="relative flex flex-col md:flex-row">
                 <a href="/" class="flex items-center mb-5 font-bold text-gray-900 lg:w-auto lg:items-center lg:justify-center md:mb-0">
                     <span class="mx-auto text-xl leading-none select-none">Mees Postma</span>
