@@ -35,8 +35,14 @@
         },
         {
             title: "Projecten",
-            href: '#',
+            href: '/projects',
             active: false
         }
     ])
 </script>
+
+<style>
+    .router-link-active {
+        font-weight: bold;
+    }
+</style>

@@ -20,7 +20,6 @@
 </template>
 
 <script setup>
-    console.log($route);
     const navItems = ref([
         {
             title: 'Over mij',
@@ -29,7 +28,7 @@
         },
         {
             title: 'Projecten',
-            href: '#',
+            href: '/projects',
             active: false,
         },
     ])
