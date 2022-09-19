@@ -9,11 +9,11 @@
                     eget euismod sem hendrerit. Etiam blandit lectus eu mi molestie sagittis. Sed lobortis porttitor dolor,
                     vitae tempor ex suscipit eu</p>
 
-                <a href="#">
+                <NuxtLink to="/about-me">
                     <Button title="Over mij"
                             class="mt-6"
                     />
-                </a>
+                </NuxtLink>
             </div>
 
             <div class="flex-none">

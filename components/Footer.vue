@@ -4,13 +4,12 @@
 
     <div class="max-w-7xl mx-auto my-6 flex w-full">
       <div class="flex flex-wrap gap-6 font-bold grow">
-        <a
-          v-for="(navItem, i) in navItems"
-          :key="i"
-          :href="navItem.href"
-          class=""
-          v-text="navItem.title"
-        />
+        <NuxtLink v-for="(navItem, i) in navItems"
+            :key="i"
+            :to="navItem.href"
+        >
+            {{ navItem.title }}
+        </NuxtLink>
       </div>
 
       <div class="text-right grow text-zinc-400">
@@ -21,10 +20,11 @@
 </template>
 
 <script setup>
+    console.log($route);
     const navItems = ref([
         {
             title: 'Over mij',
-            href: '#',
+            href: '/about-me',
             active: false,
         },
         {
