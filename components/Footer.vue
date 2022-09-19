@@ -14,7 +14,7 @@
       </div>
 
       <div class="text-right grow text-zinc-400">
-        <p>&copy; {{ currentYear }} Mees Postma. All rights reserved.</p>
+        <p>&copy; {{ new Date().getFullYear() }} Mees Postma. All rights reserved.</p>
       </div>
     </div>
   </div>
@@ -33,6 +33,4 @@
             active: false,
         },
     ])
-
-    const currentYear = new Date().getFullYear()
 </script>
