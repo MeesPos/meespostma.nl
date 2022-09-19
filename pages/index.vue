@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div>
+    <div class="flex flex-row gap-48 items-center my-12">
+        <div class="flex-initial">
             <h2 class="text-4xl font-medium">Software developer, enthousiaste reiziger en nog iets in te vullen.</h2>
 
             <p class="leading-6 mt-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lobortis dolor a nisl venenatis lobortis.
@@ -10,13 +10,15 @@
 
             <a href="#">
                 <Button title="Over mij"
-                        class="mt-4"
+                        class="mt-6"
                 />
             </a>
         </div>
 
-        <div>
-            <img src="assets/mees.jpeg" />
+        <div class="flex-none">
+            <img src="assets/mees.jpeg"
+                 class="rounded-md h-96 w-96 object-cover"
+            />
         </div>
     </div>
 </template>
