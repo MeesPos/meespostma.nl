@@ -30,5 +30,7 @@
         <Button title="Mijn CV" class="mt-6 px-10" />
       </NuxtLink>
     </div>
+
+    <!-- Projects -->
   </main>
 </template>

@@ -23,8 +23,6 @@
             </div>
         </div>
 
-        <div>
-            <ContactSection />
-        </div>
+        <!-- Projects -->
     </main>
 </template>

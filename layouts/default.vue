@@ -7,6 +7,8 @@
                 <slot />
             </div>
 
+            <ContactSection />
+
             <Footer />
         </div>
     </div>
