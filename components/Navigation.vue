@@ -16,7 +16,9 @@
             </div>
 
             <div class="inline-flex items-center ml-5 space-x-6 lg:justify-end">
-                <!-- Language switch and Dark/Light mode switch -->
+                <LanguageSwitch />
+
+                <ModeToggle />
             </div>
         </div>
     </section>
