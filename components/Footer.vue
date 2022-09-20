@@ -2,7 +2,7 @@
   <div class="mt-16">
     <div class="w-full border-t border-zinc-100" />
 
-    <div class="max-w-7xl mx-auto my-6 flex w-full">
+    <div class="max-w-7xl mx-auto py-6 flex w-full">
       <div class="flex flex-wrap gap-6 font-bold grow">
         <NuxtLink v-for="(navItem, i) in navItems"
             :key="i"
