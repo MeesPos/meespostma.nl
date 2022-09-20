@@ -1,17 +1,17 @@
 <template>
     <main>
-        <div class="flex flex-row gap-48 items-center my-12">
+        <div class="flex flex-col-reverse sm:flex-row sm:gap-48 items-center sm:my-12 w-96 sm:w-auto mx-auto">
             <div class="flex-initial">
-                <h2 class="text-4xl font-medium">Software developer, enthousiaste reiziger en nog iets in te vullen.</h2>
+                <h2 class="text-xl sm:text-4xl font-medium mt-4 sm:mt-0">Software developer, enthousiaste reiziger en nog iets in te vullen.</h2>
 
-                <p class="leading-6 mt-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lobortis dolor a nisl venenatis lobortis.
+                <p class="leading-6 mt-4 sm:mt-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lobortis dolor a nisl venenatis lobortis.
                     Fusce lacinia tempus mauris, a faucibus elit tristique quis. Vestibulum sagittis purus vel augue rutrum,
                     eget euismod sem hendrerit. Etiam blandit lectus eu mi molestie sagittis. Sed lobortis porttitor dolor,
                     vitae tempor ex suscipit eu</p>
 
                 <NuxtLink to="/about-me">
                     <Button title="Over mij"
-                            class="mt-6"
+                            class="mt-4 sm:mt-6"
                     />
                 </NuxtLink>
             </div>
