@@ -1,11 +1,11 @@
 <template>
   <main>
-    <div class="my-12 w-7/12">
-      <h2 class="text-4xl font-medium">
+    <div class="my-12 mx-auto xl:ml-0 xl:w-7/12 w-11/12">
+      <h2 class="text-xl sm:text-4xl font-medium mt-4 md:mt-0">
         Lorem ipsum dolor sit amet dictum, ut al adipiscing elit.
       </h2>
 
-      <p class="leading-6 mt-6">
+      <p class="leading-6 mt-4 sm:mt-6">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et nisl
         sit amet metus consequat mollis. In non est sed ipsum auctor aliquam.
         Maecenas nec feugiat arcu, sed ornare felis. Pellentesque neque felis,
@@ -31,10 +31,12 @@
       </NuxtLink>
     </div>
 
-    <div class="mb-16">
-      <h2 class="text-4xl font-medium">Mijn Projecten</h2>
+    <div class="mb-16 mt-8 sm:mt-0 w-11/12 xl:w-full mx-auto">
+      <h2 class="text-xl sm:text-4xl font-medium mt-4 sm:mt-0">
+        Mijn Projecten
+      </h2>
 
-      <div class="flex gap-32 mt-8">
+      <div class="flex flex-col sm:flex-row gap-8 sm:gap-32 mt-8">
         <ProjectCard
           v-for="project in projects"
           :key="project.id"
@@ -50,27 +52,27 @@
 </template>
 
 <script setup>
-  const projects = [
-    {
-      id: 1,
-      logo: 'https://spotlight.tailwindui.com/_next/static/media/helio-stream.2ac8d11f.svg',
-      title: 'Project 1',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      url: 'project.nl',
-    },
-    {
-      id: 2,
-      logo: 'https://spotlight.tailwindui.com/_next/static/media/helio-stream.2ac8d11f.svg',
-      title: 'Project 2',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      url: 'project.nl',
-    },
-    {
-      id: 3,
-      logo: 'https://spotlight.tailwindui.com/_next/static/media/helio-stream.2ac8d11f.svg',
-      title: 'Project 3',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      url: 'project.nl',
-    },
-  ]
+const projects = [
+  {
+    id: 1,
+    logo: 'https://spotlight.tailwindui.com/_next/static/media/helio-stream.2ac8d11f.svg',
+    title: 'Project 1',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    url: 'project.nl',
+  },
+  {
+    id: 2,
+    logo: 'https://spotlight.tailwindui.com/_next/static/media/helio-stream.2ac8d11f.svg',
+    title: 'Project 2',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    url: 'project.nl',
+  },
+  {
+    id: 3,
+    logo: 'https://spotlight.tailwindui.com/_next/static/media/helio-stream.2ac8d11f.svg',
+    title: 'Project 3',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    url: 'project.nl',
+  },
+]
 </script>
