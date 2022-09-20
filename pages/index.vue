@@ -23,32 +23,41 @@
             </div>
         </div>
 
-        <div>
-
+        <div class="mb-16">
+            <h2 class="text-4xl font-medium">Mijn Projecten</h2>
+            
+            <div class="flex gap-32 mt-8">
+                <ProjectCard v-for="project in projects"
+                            :key="project.id" 
+                            :project="project"
+                />
+            </div>
         </div>
-        <!-- Projects -->
     </main>
 </template>
 
 <script setup>
     const projects = [
         {
-            logo: '',
-            title: '',
-            description: '',
-            url: ''
+            id: 1,
+            logo: 'https://spotlight.tailwindui.com/_next/static/media/helio-stream.2ac8d11f.svg',
+            title: 'Project 1',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            url: 'project.nl'
         },
         {
-            logo: '',
-            title: '',
-            description: '',
-            url: ''
+            id: 2,
+            logo: 'https://spotlight.tailwindui.com/_next/static/media/helio-stream.2ac8d11f.svg',
+            title: 'Project 2',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            url: 'project.nl'
         },
         {
-            logo: '',
-            title: '',
-            description: '',
-            url: ''
+            id: 3,
+            logo: 'https://spotlight.tailwindui.com/_next/static/media/helio-stream.2ac8d11f.svg',
+            title: 'Project 3',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            url: 'project.nl'
         }
     ];
 </script>
