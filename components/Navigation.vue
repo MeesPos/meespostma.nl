@@ -1,5 +1,5 @@
 <template>
-    <section class="w-full text-gray-700 bg-white tails-selected-element">
+    <section class="w-full text-gray-700 bg-white">
         <div class="container flex flex-col flex-wrap items-center justify-between py-8 mx-auto md:flex-row">
             <div class="relative flex flex-col md:flex-row">
                 <NuxtLink to="/" class="flex items-center mb-5 font-bold text-gray-900 lg:w-auto lg:items-center lg:justify-center md:mb-0">
@@ -10,14 +10,14 @@
                     <NuxtLink v-for="(navItem, i) in navItems"
                        :key="i"
                        :to="navItem.href"
-                       class="mr-8 leading-6 text-black hover:text-gray-900"
+                       class="mx-4 sm:mx-0 sm:mr-8 leading-6 text-black hover:text-gray-900"
                     > 
                         {{ navItem.title }}
                     </NuxtLink>
                 </nav>
             </div>
 
-            <div class="inline-flex items-center ml-5 space-x-6 lg:justify-end">
+            <div class="inline-flex items-center sm:ml-5 space-x-6 lg:justify-end">
                 <LanguageSwitch />
 
                 <ModeToggle />
