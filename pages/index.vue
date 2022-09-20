@@ -32,6 +32,12 @@
                             :project="project"
                 />
             </div>
+
+            <NuxtLink to="/projects">
+                    <Button title="Alle projecten"
+                            class="mt-6"
+                    />
+                </NuxtLink>
         </div>
     </main>
 </template>
