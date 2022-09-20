@@ -1,6 +1,6 @@
 <template>
-    <main>
-        <div class="flex flex-col-reverse sm:flex-row sm:gap-48 items-center sm:my-12 w-96 sm:w-auto mx-auto">
+    <main class="w-11/12 sm:w-auto mx-auto">
+        <div class="flex flex-col-reverse sm:flex-row sm:gap-48 items-center sm:my-12">
             <div class="flex-initial">
                 <h2 class="text-xl sm:text-4xl font-medium mt-4 sm:mt-0">Software developer, enthousiaste reiziger en nog iets in te vullen.</h2>
 
@@ -18,15 +18,15 @@
 
             <div class="flex-none">
                 <img src="assets/mees.jpeg"
-                    class="rounded-md h-96 w-96 object-cover"
+                    class="rounded-md sm:h-96 sm:w-96 object-cover"
                 />
             </div>
         </div>
 
-        <div class="mb-16">
-            <h2 class="text-4xl font-medium">Mijn Projecten</h2>
+        <div class="mb-16 mt-8 sm:mt-0">
+            <h2 class="text-xl sm:text-4xl font-medium mt-4 sm:mt-0">Mijn Projecten</h2>
             
-            <div class="flex gap-32 mt-8">
+            <div class="flex flex-col sm:flex-row gap-8 sm:gap-32 mt-8">
                 <ProjectCard v-for="project in projects"
                             :key="project.id" 
                             :project="project"
