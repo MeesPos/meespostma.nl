@@ -23,6 +23,32 @@
             </div>
         </div>
 
+        <div>
+
+        </div>
         <!-- Projects -->
     </main>
 </template>
+
+<script setup>
+    const projects = [
+        {
+            logo: '',
+            title: '',
+            description: '',
+            url: ''
+        },
+        {
+            logo: '',
+            title: '',
+            description: '',
+            url: ''
+        },
+        {
+            logo: '',
+            title: '',
+            description: '',
+            url: ''
+        }
+    ];
+</script>
