@@ -1,8 +1,8 @@
 <template>
-    <main class="w-11/12 sm:w-auto mx-auto">
-        <div class="flex flex-col-reverse sm:flex-row sm:gap-48 items-center sm:my-12">
+    <main class="w-11/12 md:w-auto mx-auto">
+        <div class="flex flex-col-reverse md:flex-row md:gap-12 lg:gap-48 items-center sm:my-12">
             <div class="flex-initial">
-                <h2 class="text-xl sm:text-4xl font-medium mt-4 sm:mt-0">Software developer, enthousiaste reiziger en nog iets in te vullen.</h2>
+                <h2 class="text-xl sm:text-4xl font-medium mt-4 md:mt-0">Software developer, enthousiaste reiziger en nog iets in te vullen.</h2>
 
                 <p class="leading-6 mt-4 sm:mt-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lobortis dolor a nisl venenatis lobortis.
                     Fusce lacinia tempus mauris, a faucibus elit tristique quis. Vestibulum sagittis purus vel augue rutrum,
