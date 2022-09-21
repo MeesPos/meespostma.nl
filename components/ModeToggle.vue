@@ -1,6 +1,6 @@
 <template>
-    <div class="cursor-pointer" @click="setDarkMode">
-        <Icon v-if="darkMode"
+    <button class="cursor-pointer" @click="setColorTheme($colorMode.preference == 'dark' ? 'light' : 'dark')">
+        <Icon v-if="$colorMode.value == 'dark'"
               name="heroicons-outline:moon"
               class="w-6 h-6 text-yellow-300"
         />
@@ -9,17 +9,13 @@
               name="heroicons-outline:sun"
               class="w-6 h-6 text-zinc-800"
         />
-    </div>
+    </button>
 </template>
 
-<script setup>
-    let darkMode = ref(false);
+<script setup lang="ts">
+    type Theme = 'light' | 'dark';
 
-    function setDarkMode() {
-        if (darkMode.value) {
-            return darkMode.value = false;
-        }
-
-        return darkMode.value = true;
+    const setColorTheme = (newTheme: Theme) => {
+        useColorMode().preference = newTheme
     }
 </script>
