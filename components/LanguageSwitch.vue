@@ -1,5 +1,5 @@
 <template>
-    <div class="text-zinc-800 font-medium">
+    <div class="text-zinc-800 dark:text-white font-medium">
         <div class="flex gap-1 items-center cursor-pointer" @click="setOpenModal">
             <span>{{ locale.toUpperCase() }}</span>
 

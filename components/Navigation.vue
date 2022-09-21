@@ -1,8 +1,8 @@
 <template>
-    <section class="w-full text-gray-700 bg-white">
+    <section class="w-full bg-white dark:bg-zinc-900">
         <div class="container flex flex-col flex-wrap items-center justify-between py-8 mx-auto md:flex-row">
             <div class="relative flex flex-col md:flex-row">
-                <NuxtLink to="/" class="flex items-center mb-5 font-bold text-gray-900 lg:w-auto lg:items-center lg:justify-center md:mb-0">
+                <NuxtLink to="/" class="flex items-center mb-5 font-bold text-gray-900 dark:text-white lg:w-auto lg:items-center lg:justify-center md:mb-0">
                     <span class="mx-auto text-xl leading-none select-none">Mees Postma</span>
                 </NuxtLink>
 
@@ -10,7 +10,7 @@
                     <NuxtLink v-for="(navItem, i) in navItems"
                        :key="i"
                        :to="navItem.href"
-                       class="mx-4 md:mx-0 md:mr-8 leading-6 text-black hover:text-gray-900"
+                       class="mx-4 md:mx-0 md:mr-8 leading-6 text-black hover:text-gray-900 dark:text-white"
                     > 
                         {{ $t(navItem.title) }}
                     </NuxtLink>
