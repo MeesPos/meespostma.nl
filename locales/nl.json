@@ -9,5 +9,9 @@
             "title": "Mijn Projecten",
             "button": "Alle Projecten"
         }
+    },
+    "contact": {
+        "title": "Neem contact op",
+        "description": "Dit is een test description"
     }
 }

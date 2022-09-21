@@ -9,5 +9,9 @@
             "title": "My Projects",
             "button": "All Projects"
         }
+    },
+    "contact": {
+        "title": "Contact me",
+        "description": "This is a test description"
     }
 }

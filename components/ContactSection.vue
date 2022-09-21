@@ -1,8 +1,8 @@
 <template>
     <div class="sm:max-w-2xl w-11/12 mx-auto">
-        <h2 class="text-xl sm:text-4xl font-medium mt-4 sm:mt-0 text-center">Neem contact op</h2>
+        <h2 class="text-xl sm:text-4xl font-medium mt-4 sm:mt-0 text-center" v-text="$t('contact.title')" />
 
-        <p class="mt-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lobortis dolor a nisl venenatis lobortis. Fusce lacinia tempus mauris, a faucibus elit tristique quis.</p>
+        <p class="mt-6" v-text="$t('contact.description')" />
 
         <div class="flex gap-6 sm:gap-12 justify-center mt-6">
             <a href="mailto:mail@meespostma.nl">
