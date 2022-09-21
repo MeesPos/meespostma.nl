@@ -1,3 +1,13 @@
 {
-    
+    "home": {
+        "header": {
+            "title": "Software developer, enthusiastic traveler and something to fill in.",
+            "description": "This is a test description",
+            "button": "About me"
+        },
+        "projects": {
+            "title": "My Projects",
+            "button": "All Projects"
+        }
+    }
 }

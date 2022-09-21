@@ -1,3 +1,13 @@
 {
-    
+    "home": {
+        "header": {
+            "title": "Software developer, enthousiaste reiziger en nog iets in te vullen.",
+            "description": "Dit is een test description",
+            "button": "Over mij"
+        },
+        "projects": {
+            "title": "Mijn Projecten",
+            "button": "Alle Projecten"
+        }
+    }
 }

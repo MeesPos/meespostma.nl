@@ -2,15 +2,12 @@
     <main class="w-11/12 md:w-auto mx-auto">
         <div class="flex flex-col-reverse md:flex-row md:gap-12 lg:gap-48 items-center sm:my-12">
             <div class="flex-initial">
-                <h2 class="text-xl sm:text-4xl font-medium mt-4 md:mt-0">Software developer, enthousiaste reiziger en nog iets in te vullen.</h2>
+                <h2 class="text-xl sm:text-4xl font-medium mt-4 md:mt-0" v-text="$t('home.header.title')" />
 
-                <p class="leading-6 mt-4 sm:mt-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lobortis dolor a nisl venenatis lobortis.
-                    Fusce lacinia tempus mauris, a faucibus elit tristique quis. Vestibulum sagittis purus vel augue rutrum,
-                    eget euismod sem hendrerit. Etiam blandit lectus eu mi molestie sagittis. Sed lobortis porttitor dolor,
-                    vitae tempor ex suscipit eu</p>
+                <p class="leading-6 mt-4 sm:mt-6" v-text="$t('home.header.description')" />
 
                 <NuxtLink to="/about-me">
-                    <Button title="Over mij"
+                    <Button :title="$t('home.header.button')"
                             class="mt-4 sm:mt-6"
                     />
                 </NuxtLink>
@@ -24,8 +21,8 @@
         </div>
 
         <div class="mb-16 mt-8 sm:mt-0">
-            <h2 class="text-xl sm:text-4xl font-medium mt-4 sm:mt-0">Mijn Projecten</h2>
-            
+            <h2 class="text-xl sm:text-4xl font-medium mt-4 sm:mt-0" v-text="$t('home.projects.title')" />
+
             <div class="flex flex-col sm:flex-row gap-8 sm:gap-32 mt-8">
                 <ProjectCard v-for="project in projects"
                             :key="project.id" 
@@ -34,7 +31,7 @@
             </div>
 
             <NuxtLink to="/projects">
-                    <Button title="Alle projecten"
+                    <Button :title="$t('home.projects.button')"
                             class="mt-6"
                     />
                 </NuxtLink>
