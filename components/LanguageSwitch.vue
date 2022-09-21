@@ -38,7 +38,7 @@
 
         localStorage.setItem('locale', value);
 
-        openModal.value = false;
+        setOpenModal();
     }
 
     function setOpenModal() {
