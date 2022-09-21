@@ -6,6 +6,9 @@ export default defineNuxtConfig({
         '@intlify/nuxt3'
     ],
     intlify: {
-        localeDir: 'locales'
+        localeDir: 'locales',
+        vueI18n: {
+            locale: 'nl'
+        }
     }
 })
