@@ -1,5 +1,8 @@
 <template>
-    <button class="cursor-pointer" @click="setColorTheme($colorMode.preference == 'dark' ? 'light' : 'dark')">
+    <button v-if="$colorMode.value !== 'system'" 
+            class="cursor-pointer" 
+            @click="setColorTheme($colorMode.preference == 'dark' ? 'light' : 'dark')"
+    >
         <Icon v-if="$colorMode.value == 'dark'"
               name="heroicons-outline:moon"
               class="w-6 h-6 text-yellow-300"
