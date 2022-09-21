@@ -29,7 +29,7 @@
 
     let openModal = ref(false);
 
-    onBeforeMount(() => {
+    onMounted(() => {
         locale.value = localStorage.getItem('locale') || 'nl';
     })
 
