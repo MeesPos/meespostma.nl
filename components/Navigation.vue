@@ -12,7 +12,7 @@
                        :to="navItem.href"
                        class="mx-4 md:mx-0 md:mr-8 leading-6 text-black hover:text-gray-900"
                     > 
-                        {{ navItem.title }}
+                        {{ $t(navItem.title) }}
                     </NuxtLink>
                 </nav>
             </div>
@@ -29,12 +29,12 @@
 <script setup>
     const navItems = ref([
         {
-            title: "Over mij",
+            title: "pages.about-me",
             href: '/about-me',
             active: false
         },
         {
-            title: "Projecten",
+            title: "pages.projects",
             href: '/projects',
             active: false
         }

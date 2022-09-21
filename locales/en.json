@@ -1,4 +1,8 @@
 {
+    "pages": {
+        "about-me": "About me",
+        "projects": "Projects"
+    },
     "home": {
         "header": {
             "title": "Software developer, enthusiastic traveler and something to fill in.",
