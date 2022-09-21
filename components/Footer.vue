@@ -23,13 +23,11 @@
     const navItems = ref([
         {
             title: 'pages.about-me',
-            href: '/about-me',
-            active: false,
+            href: '/about-me'
         },
         {
             title: 'pages.projects',
-            href: '/projects',
-            active: false,
+            href: '/projects'
         },
     ])
 </script>
