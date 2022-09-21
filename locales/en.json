@@ -17,5 +17,15 @@
     "contact": {
         "title": "Contact me",
         "description": "This is a test description"
+    },
+    "about-me": {
+        "header": {
+            "title": "This is a test title",
+            "description": "This is a test description"
+        },
+        "projects": {
+            "title": "View these projects",
+            "button": "All Projects"
+        }
     }
 }

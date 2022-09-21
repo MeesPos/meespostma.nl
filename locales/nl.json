@@ -17,5 +17,15 @@
     "contact": {
         "title": "Neem contact op",
         "description": "Dit is een test description"
+    },
+    "about-me": {
+        "header": {
+            "title": "Dit is een test titel",
+            "description":"Dit is een test description"
+        },
+        "projects": {
+            "title": "Bekijk nog deze projecten",
+            "button": "Alle Projecten"
+        }
     }
 }
