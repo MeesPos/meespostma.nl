@@ -60,7 +60,9 @@
                         <h1 class="text-lg font-medium leading-6 text-gray-900 sm:truncate">Projects</h1>
                     </div>
                     <div class="mt-4 flex sm:mt-0 sm:ml-4">
-                        <Button title="Create" />
+                        <NuxtLink to="/projects/create">
+                            <Button title="Create" />
+                        </NuxtLink>
                     </div>
                 </div>
 
