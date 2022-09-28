@@ -1,5 +1,5 @@
 <template>
-    <form class="space-y-8 divide-y divide-gray-200">
+    <form class="space-y-8 divide-y divide-gray-200" @submit.prevent="submit">
         <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
             <div class="space-y-6 sm:space-y-5">
                 <div>
@@ -21,7 +21,7 @@
                         <label for="description"
                             class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">Description</label>
                         <div class="mt-1 sm:col-span-2 sm:mt-0">
-                            <textarea id="description" name="description" rows="3"
+                            <textarea id="description" name="description" rows="3" v-model="description"
                                 class="block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
                         </div>
                     </div>
@@ -29,16 +29,7 @@
                     <div class="sm:grid sm:grid-cols-3 sm:items-center sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                         <label for="logo" class="block text-sm font-medium text-gray-700">Logo</label>
                         <div class="mt-1 sm:col-span-2 sm:mt-0">
-                            <div class="flex items-center">
-                                <span class="h-12 w-12 overflow-hidden rounded-full bg-gray-100">
-                                    <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-                                    </svg>
-                                </span>
-                                <button type="button"
-                                    class="ml-5 rounded-md border border-gray-300 bg-white py-2 px-3 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Change</button>
-                            </div>
+                            <input type="file" id="logo" @change="uploadedFile($event)" />
                         </div>
                     </div>
 
@@ -73,7 +64,21 @@
 </template>
 
 <script setup>
-definePageMeta({
-    layout: 'dashboard'
-})
+    definePageMeta({
+        layout: 'dashboard'
+    })
+
+    const title = ref(null);
+    const description = ref(null);
+    const logo = ref(null);
+    const url = ref(null);
+    const urlPlaceholder = ref(null);
+
+    function uploadedFile(e) {
+        logo.value = e.target.value;
+    }
+
+    function submit() {
+            
+    }
 </script>
