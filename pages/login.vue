@@ -8,7 +8,7 @@
 
                 <div class="mt-8">
                     <div class="mt-6">
-                        <form @submit.prevent="login" class="space-y-6">
+                        <form action="#" @submit.prevent="login" class="space-y-6">
                             <div>
                                 <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
                                 <div class="mt-1">

@@ -1,5 +1,5 @@
 <template>
-    <form class="space-y-8 divide-y divide-gray-200" @submit.prevent="submit" enctype="multipart/form-data">
+    <form action="#" class="space-y-8 divide-y divide-gray-200" @submit.prevent="submit" enctype="multipart/form-data">
         <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
             <div class="space-y-6 sm:space-y-5">
                 <div>
@@ -90,7 +90,7 @@
         const file = e.target.files[0];
         const reader = new FileReader();
 
-        reader.readAsDataURL(file);;
+        reader.readAsDataURL(file);
 
         reader.onload = function () {
             logo.value = reader.result;
