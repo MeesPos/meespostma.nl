@@ -29,7 +29,7 @@
                     <div class="sm:grid sm:grid-cols-3 sm:items-center sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                         <label for="logo" class="block text-sm font-medium text-gray-700">Logo</label>
                         <div class="mt-1 sm:col-span-2 sm:mt-0">
-                            <input type="file" id="logo" @change="uploadedFile($event)" />
+                            <input type="file" id="logo" accept="image/png, image/jpeg" @change="uploadedFile($event)" />
                         </div>
                     </div>
 
@@ -101,7 +101,7 @@
 
     function submit() {
         try {
-            $apiFetch('/Projects', {
+            const project = $apiFetch('/Projects', {
                 method: 'POST',
                 body: {
                     name: name.value,
@@ -112,11 +112,8 @@
                     OriginalLogoName: OriginalLogoName
                 }
             })
-
-            // window.location.pathname = '/dashboard';
         } catch (err) {
             console.log(err);
         }
-
     }
 </script>
