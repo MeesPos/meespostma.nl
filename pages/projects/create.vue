@@ -1,5 +1,5 @@
 <template>
-    <form class="space-y-8 divide-y divide-gray-200" @submit.prevent="submit">
+    <form class="space-y-8 divide-y divide-gray-200" @submit.prevent="submit" enctype="multipart/form-data">
         <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
             <div class="space-y-6 sm:space-y-5">
                 <div>
@@ -10,9 +10,9 @@
 
                 <div class="space-y-6 sm:space-y-5">
                     <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
-                        <label for="title" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">Title</label>
+                        <label for="name" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">Name</label>
                         <div class="mt-1 sm:col-span-2 sm:mt-0">
-                            <input type="text" name="title" id="title" autocomplete="title" v-model="title"
+                            <input type="text" name="name" id="name" autocomplete="name" v-model="name"
                                 class="block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm">
                         </div>
                     </div>
@@ -65,20 +65,43 @@
 
 <script setup>
     definePageMeta({
-        layout: 'dashboard'
+        layout: 'dashboard',
+        middleware: 'auth'
     })
 
-    const title = ref(null);
+    const { $apiFetch } = useNuxtApp();
+
+    const name = ref(null);
     const description = ref(null);
     const logo = ref(null);
     const url = ref(null);
     const urlPlaceholder = ref(null);
+    let OriginalLogoName = null;
 
     function uploadedFile(e) {
-        logo.value = e.target.value;
+        const file = e.target.files[0];
+        const reader = new FileReader();
+
+        reader.readAsDataURL(file);;
+
+        reader.onload = function() {
+            logo.value = reader.result;
+        }
+
+        OriginalLogoName = file.name;
     }
 
     function submit() {
-            
+        $apiFetch('/Projects', {
+            method: 'POST',
+            body: {
+                name: name.value,
+                description: description.value,
+                logo: logo.value.substring(logo.value.length, 23),
+                url: url.value,
+                urlPlaceholder: urlPlaceholder.value,
+                OriginalLogoName: OriginalLogoName 
+            }
+        })
     }
 </script>
