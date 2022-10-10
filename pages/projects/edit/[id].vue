@@ -77,19 +77,59 @@
         middleware: 'auth'
     })
 
-    let project = null;
+    const name = ref(null);
+    const description = ref(null);
+    const logo = ref(null);
+    const url = ref(null);
+    const urlPlaceholder = ref(null);
+    let OriginalLogoName = null;
 
-    const { $apiFetch, $route } = useNuxtApp()
+    const { $apiFetch } = useNuxtApp()
 
     try {
         $apiFetch(`/Projects/${useRoute().params.id}`, {
             method: "GET"
         }).then(result => {
-            console.log(result);
-            
-            project = result;
+            name.value = result.name;
+            description.value = result.description;
+            url.value = result.url;
+            urlPlaceholder.value = result.urlPlaceholder;
         });
     } catch (err) {
         console.log(err);
+    }
+
+    function uploadedFile(e) {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+
+        reader.readAsDataURL(file);
+
+        reader.onload = function () {
+            logo.value = reader.result;
+        }
+
+        OriginalLogoName = file.name;
+    }
+
+    function submit() {
+        try {
+            const project = $apiFetch(`/Projects/${useRoute().params.id}`, {
+                method: 'PUT',
+                body: {
+                    id: useRoute().params.id,
+                    name: name.value,
+                    description: description.value,
+                    logo: logo.value.substring(logo.value.length, 23),
+                    url: url.value,
+                    urlPlaceholder: urlPlaceholder.value,
+                    OriginalLogoName: OriginalLogoName
+                }
+            }).finally(result => {
+                console.log(result);
+            })
+        } catch (err) {
+            console.log(err);
+        }
     }
 </script>
