@@ -45,6 +45,9 @@
                                         scope="col">URL</th>
                                     <th class="border-b border-gray-200 bg-gray-50 py-3 pr-6 text-right text-sm font-semibold text-gray-900"
                                         scope="col"></th>
+
+                                    <th class="border-b border-gray-200 bg-gray-50 py-3 pr-6 text-right text-sm font-semibold text-gray-900"
+                                        scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-100 bg-white">
@@ -62,6 +65,10 @@
                                     <td class="whitespace-nowrap px-6 py-3 text-right text-sm font-medium">
                                         <a :href="'/projects/edit/' + project.id" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                     </td>
+
+                                    <td class="whitespace-nowrap px-6 py-3 text-right text-sm font-medium">
+                                        <a @click="deleteProject(project.id)" class="text-red-600 hover:text-red-900 cursor-pointer">Delete</a>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -78,6 +85,7 @@
         middleware: 'auth'
     })
 
+
     const { $apiFetch } = useNuxtApp()
 
     let projects = null;
@@ -90,5 +98,17 @@
         })
     } catch(err) {
         console.log(err);
+    }
+
+    async function deleteProject(projectId) {
+        try {
+            await $apiFetch(`/Projects/${projectId}`, {
+                method: "DELETE"
+            }).then(() => {
+                window.location.reload();
+            })
+        } catch(err) {
+            console.log(err);
+        }
     }
 </script>
