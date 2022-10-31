@@ -27,5 +27,11 @@
             "title": "Bekijk nog deze projecten",
             "button": "Alle Projecten"
         }
+    },
+    "projects": {
+        "header": {
+            "title": "Dit is een test titel",
+            "description": "Dit is een test description"
+        }
     }
 }

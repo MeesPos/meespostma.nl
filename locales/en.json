@@ -27,5 +27,11 @@
             "title": "View these projects",
             "button": "All Projects"
         }
+    },
+    "projects": {
+        "header": {
+            "title": "This is a test title",
+            "description": "This is a test description"
+        }
     }
 }
