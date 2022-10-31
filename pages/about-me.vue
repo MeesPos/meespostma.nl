@@ -3,7 +3,7 @@
     <div class="my-12 mx-auto xl:ml-0 xl:w-7/12 w-11/12">
       <h2 class="text-xl sm:text-4xl font-medium mt-4 md:mt-0" v-text="$t('about-me.header.title')" />
 
-      <p class="leading-6 mt-4 sm:mt-6" v-text="$t('about-me.header.description')" />
+      <p class="leading-6 mt-4 sm:mt-6" v-html="$t('about-me.header.description')" />
 
       <NuxtLink to="#">
         <Button title="Curriculum Vitae" class="mt-6" />
