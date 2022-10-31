@@ -91,7 +91,7 @@
     let projects = null;
 
     try {
-        await $apiFetch('/Projects', {
+        await $apiFetch('/api/projects', {
             method: "GET"
         }).then(result => {
             projects = result;
