@@ -104,7 +104,7 @@
         await csrf();
         
         try {
-             $apiFetch('/api/projects', {
+            $apiFetch('/api/projects', {
                 method: 'POST',
                 body: {
                     name: name.value,
@@ -113,6 +113,8 @@
                     url: url.value,
                     url_placeholder: urlPlaceholder.value
                 }
+            }).then((result) => {
+                return window.location.pathname = '/dashboard';
             })
         } catch (err) {
             console.log(err);
