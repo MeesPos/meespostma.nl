@@ -84,7 +84,6 @@
     const logo = ref(null);
     const url = ref(null);
     const urlPlaceholder = ref(null);
-    let OriginalLogoName = null;
 
     function uploadedFile(e) {
         const file = e.target.files[0];
@@ -95,22 +94,27 @@
         reader.onload = function () {
             logo.value = reader.result;
         }
-
-        OriginalLogoName = file.name;
     }
 
-    function submit() {
+    function csrf() {
+        return $apiFetch('/sanctum/csrf-cookie')
+    }
+
+    async function submit() {
+        await csrf();
+        
         try {
-            const project = $apiFetch('/Projects', {
+            $apiFetch('/api/projects', {
                 method: 'POST',
                 body: {
                     name: name.value,
                     description: description.value,
-                    logo: logo.value.substring(logo.value.length, 23),
+                    logo: logo.value,
                     url: url.value,
-                    urlPlaceholder: urlPlaceholder.value,
-                    OriginalLogoName: OriginalLogoName
+                    url_placeholder: urlPlaceholder.value
                 }
+            }).then((result) => {
+                return window.location.pathname = '/dashboard';
             })
         } catch (err) {
             console.log(err);

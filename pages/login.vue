@@ -54,30 +54,33 @@
     const password = ref('');
     const errors = ref([]);
 
-    const { $auth } = useNuxtApp()
+    const { $apiFetch } = useNuxtApp()
+
+    function csrf() {
+        return $apiFetch('/sanctum/csrf-cookie')
+    }
 
     async function login() {
+        await csrf();
+
         try {
-            const login = await $auth.loginWith('local', {
+            await $apiFetch('/login', {
+                method: 'POST',
                 body: {
                     email: email.value,
                     password: password.value
                 }
-            }).catch(err => {
-                if (err.data.title === 'Unauthorized') {
-                    errors.value = err.data.title;
-                } else {
-                    errors.value = Object.values(err.data.errors).flat();
-                }
-            });
+            })
 
-            if (typeof login !== 'undefined') {
-                $auth.setUserToken(login.token);
+            const user = await $apiFetch('/api/user')
 
-                window.location.pathname = '/dashboard';
-            }
+            const { setUser } = useAuth();
+
+            setUser(user.name);
+
+            window.location.pathname = '/dashboard';
         } catch (err) {
-            errors.value = err;
+            errors.value = Object.values(err.data.errors).flat()
         }
     }
 </script>

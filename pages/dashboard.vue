@@ -91,7 +91,7 @@
     let projects = null;
 
     try {
-        await $apiFetch('/Projects', {
+        await $apiFetch('/api/projects', {
             method: "GET"
         }).then(result => {
             projects = result;
@@ -102,7 +102,7 @@
 
     async function deleteProject(projectId) {
         try {
-            await $apiFetch(`/Projects/${projectId}`, {
+            await $apiFetch(`/api/projects/${projectId}`, {
                 method: "DELETE"
             }).then(() => {
                 window.location.reload();

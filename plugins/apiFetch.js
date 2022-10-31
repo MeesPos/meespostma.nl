@@ -1,13 +1,13 @@
 import {defineNuxtPlugin, useRuntimeConfig} from "#app";
 
 export default defineNuxtPlugin(nuxtApp => {
-    const { $auth } = useNuxtApp()
     const config = useRuntimeConfig()
-
     nuxtApp.provide('apiFetch', $fetch.create({
         baseURL: config.API_URL,
+        credentials: 'include',
         headers: {
-            Authorization: $auth.strategy.token.get()
+            Accept: 'application/json',
+            'X-XSRF-TOKEN': useCookie('XSRF-TOKEN').value
         }
     }))
 })
