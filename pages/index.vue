@@ -4,7 +4,7 @@
             <div class="flex-initial">
                 <h2 class="text-xl sm:text-4xl font-medium mt-4 md:mt-0" v-text="$t('home.header.title')" />
 
-                <p class="leading-6 mt-4 sm:mt-6" v-text="$t('home.header.description')" />
+                <p class="leading-6 mt-4 sm:mt-6" v-html="$t('home.header.description')" />
 
                 <NuxtLink to="/about-me">
                     <Button :title="$t('home.header.button')"

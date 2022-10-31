@@ -5,8 +5,8 @@
     },
     "home": {
         "header": {
-            "title": "Software developer, enthusiastic traveler and something to fill in.",
-            "description": "This is a test description",
+            "title": "Software developer & Travel enthusiast",
+            "description": "My name is Mees Postma, I am currently studying HBO-ICT at the Hogeschool Utrecht. Outside of school, I also manage a company called Hubsor. For more information about me, check out the <b>About me</b> page!",
             "button": "About me"
         },
         "projects": {
