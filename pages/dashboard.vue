@@ -102,7 +102,7 @@
 
     async function deleteProject(projectId) {
         try {
-            await $apiFetch(`/Projects/${projectId}`, {
+            await $apiFetch(`/api/projects/${projectId}`, {
                 method: "DELETE"
             }).then(() => {
                 window.location.reload();
