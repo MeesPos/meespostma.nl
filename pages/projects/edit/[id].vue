@@ -87,13 +87,13 @@
     const { $apiFetch } = useNuxtApp()
 
     try {
-        $apiFetch(`/Projects/${useRoute().params.id}`, {
+        $apiFetch(`/api/projects/${useRoute().params.id}`, {
             method: "GET"
         }).then(result => {
             name.value = result.name;
             description.value = result.description;
             url.value = result.url;
-            urlPlaceholder.value = result.urlPlaceholder;
+            urlPlaceholder.value = result.url_placeholder;
         });
     } catch (err) {
         console.log(err);
@@ -112,21 +112,25 @@
         OriginalLogoName = file.name;
     }
 
-    function submit() {
+    function csrf() {
+        return $apiFetch('/sanctum/csrf-cookie')
+    }
+
+    async function submit() {
+        await csrf();
+
         try {
-            const project = $apiFetch(`/Projects/${useRoute().params.id}`, {
+            await $apiFetch(`/api/projects/${useRoute().params.id}`, {
                 method: 'PUT',
                 body: {
-                    id: useRoute().params.id,
                     name: name.value,
                     description: description.value,
-                    logo: logo.value.substring(logo.value.length, 23),
+                    logo: logo.value,
                     url: url.value,
-                    urlPlaceholder: urlPlaceholder.value,
-                    OriginalLogoName: OriginalLogoName
+                    url_placeholder: urlPlaceholder.value
                 }
-            }).finally(result => {
-                console.log(result);
+            }).then((result) => {
+                return window.location.pathname = '/dashboard';
             })
         } catch (err) {
             console.log(err);
