@@ -30,8 +30,8 @@
     },
     "projects": {
         "header": {
-            "title": "This is a test title",
-            "description": "This is a test description"
+            "title": "View my projects",
+            "description": "On this page you can see all the projects I am proud of. I made these projects for my company, during school and in my own time."
         }
     }
 }
