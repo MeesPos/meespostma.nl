@@ -7,7 +7,7 @@
         </div>
 
         <div class="mb-16 mt-8 sm:mt-0 w-11/12 xl:w-full mx-auto">
-            <div class="flex flex-col sm:flex-row gap-8 sm:gap-32 mt-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-8 sm:gap-32 mt-8">
                 <ProjectCard
                     v-for="project in projects"
                     :key="project.id"
@@ -19,5 +19,21 @@
 </template>
 
 <script setup>
-    
+    let projects = ref([]);
+
+    const { $apiFetch } = useNuxtApp();
+
+    try {
+        await $apiFetch('/Projects', {
+            method: "GET"
+        }).then((result) => {
+            projects = result;
+
+            projects.length = 3;
+
+            console.log(projects);
+        });
+    } catch (err) {
+        console.log(err);
+    }
 </script>
