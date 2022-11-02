@@ -17,5 +17,15 @@ export default defineNuxtConfig({
         vueI18n: {
             locale: 'nl'
         }
+    },
+    app: {
+        head: {
+            meta: [
+                {
+                    'http-equiv': "Content-Security-Policy",
+                    content: "upgrade-insecure-requests"
+                }
+            ]
+        }
     }
 })
