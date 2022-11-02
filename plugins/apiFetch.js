@@ -1,9 +1,8 @@
 import {defineNuxtPlugin, useRuntimeConfig} from "#app";
 
 export default defineNuxtPlugin(nuxtApp => {
-    console.log(useCookie('XSRF-TOKEN', {
-        domain: 'api.meespostma.dev'
-    }).value);
+    console.log(useCookie('XSRF-TOKEN'));
+    console.log(useCookies());
 
     const config = useRuntimeConfig()
     nuxtApp.provide('apiFetch', $fetch.create({
