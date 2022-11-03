@@ -46,8 +46,6 @@
 </template>
 
 <script setup>
-    import Cookies from 'js-cookie'
-
     definePageMeta({
         layout: 'auth'
     })
@@ -59,15 +57,11 @@
     const { $apiFetch } = useNuxtApp()
 
     function csrf() {
-        $apiFetch('/sanctum/csrf-cookie');
-
-        return Cookies.set(useCookie('XSRF-TOKEN').value, 'XSRF-TOKEN');
+        return $apiFetch('/sanctum/csrf-cookie')
     }
 
     async function login() {
-        const csrfToken = await csrf();
-
-        return;
+        await csrf();
 
         try {
             await $apiFetch('/login', {

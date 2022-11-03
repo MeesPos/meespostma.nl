@@ -14,8 +14,5 @@
     "@tailwindcss/forms": "^0.5.3",
     "nuxt": "^3.0.0-rc.11",
     "nuxt-icon": "^0.1.5"
-  },
-  "dependencies": {
-    "js-cookie": "^3.0.1"
   }
 }
