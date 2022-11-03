@@ -39,9 +39,9 @@
       }).then((result) => {
           projects = result;
 
-          projects.length = 3;
-
-          console.log(projects);
+          if (projects.length > 3) {
+            projects.length = 3;
+          }
       });
   } catch (err) {
       console.log(err);

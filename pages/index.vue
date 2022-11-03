@@ -24,10 +24,10 @@
             <h2 class="text-xl sm:text-4xl font-medium mt-4 sm:mt-0" v-text="$t('home.projects.title')" />
 
             <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-8 sm:gap-32 mt-8">
-                <!-- <ProjectCard v-for="(i, project) in projects"
+                <ProjectCard v-for="(i, project) in projects"
                             :key="i" 
                             :project="project"
-                /> -->
+                />
             </div>
 
             <NuxtLink to="/projects">
@@ -50,9 +50,9 @@
         }).then((result) => {
             projects = result;
 
-            projects.length = 3;
-
-            console.log(projects);
+            if (projects.length > 3) {
+                projects.length = 3;
+            } 
         });
     } catch (err) {
         console.log(err);
