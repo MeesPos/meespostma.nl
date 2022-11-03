@@ -14,11 +14,10 @@
       <h2 class="text-xl sm:text-4xl font-medium mt-4 sm:mt-0" v-text="$t('about-me.projects.title')" />
 
       <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-8 sm:gap-32 mt-8">
-        <ProjectCard
-          v-for="project in projects"
-          :key="project.id"
-          :project="project"
-        />
+        <ProjectCard v-for="(project, i) in projects"
+                            :key="i" 
+                            :project="project"
+                />
       </div>
 
       <NuxtLink to="/projects">
