@@ -18,10 +18,19 @@
                     </div>
 
                     <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
-                        <label for="description"
-                            class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">Description</label>
+                        <label for="description_nl"
+                            class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">Description (NL)</label>
                         <div class="mt-1 sm:col-span-2 sm:mt-0">
-                            <textarea id="description" name="description" rows="3" v-model="description"
+                            <textarea id="description_nl" name="description_nl" rows="3" v-model="description_nl"
+                                class="block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+                        </div>
+                    </div>
+
+                    <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
+                        <label for="description_en"
+                            class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">Description (EN)</label>
+                        <div class="mt-1 sm:col-span-2 sm:mt-0">
+                            <textarea id="description_en" name="description_en" rows="3" v-model="description_en"
                                 class="block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
                         </div>
                     </div>
@@ -80,7 +89,8 @@
     const { $apiFetch } = useNuxtApp();
 
     const name = ref(null);
-    const description = ref(null);
+    const description_nl = ref(null);
+    const description_en = ref(null);
     const logo = ref(null);
     const url = ref(null);
     const urlPlaceholder = ref(null);
@@ -108,7 +118,10 @@
                 method: 'POST',
                 body: {
                     name: name.value,
-                    description: description.value,
+                    description: {
+                        'nl': description_nl.value,
+                        'en': description_en.value
+                    },
                     logo: logo.value,
                     url: url.value,
                     url_placeholder: urlPlaceholder.value
