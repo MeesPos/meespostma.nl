@@ -26,7 +26,7 @@
         await $apiFetch('/api/projects', {
             method: "GET"
         }).then((result) => {
-            projects = result;
+            projects = result.data;
         });
     } catch (err) {
         console.log(err);

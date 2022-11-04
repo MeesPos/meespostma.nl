@@ -7,24 +7,30 @@
 
         <h3 class="font-bold text-lg mt-4" v-text="project.name" />
 
-        <p class="mt-4 leading-7" v-text="project.description" />
+        <p class="mt-4 leading-7" v-text="project.description[locale]" />
 
         <div :href="project.url" class="mt-4 flex items-center gap-2 text-zinc-400">
             <Icon name="heroicons-solid:link" />
-            <a target="_blank" :href="project.url" v-text="project.url_placeholder" />
+            <a target="_blank" :href="project.url.href" v-text="project.url.placeholder" />
         </div>
     </a>
 </div>
 </template>
 
 <script setup>
+    import { useI18n } from 'vue-i18n';
+
+    const { locale } = useI18n();
+
     defineProps({
         project: {
             logo: '',
             name: '',
             description: '',
-            url: '',
-            urlPlaceholder: ''
+            url: {
+                href: '',
+                placeholder: ''
+            },
         }
     })
 </script>

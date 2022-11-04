@@ -48,7 +48,7 @@
         await $apiFetch('/api/projects', {
             method: "GET"
         }).then((result) => {
-            projects = result;
+            projects = result.data;
 
             if (projects.length > 3) {
                 projects.length = 3;
