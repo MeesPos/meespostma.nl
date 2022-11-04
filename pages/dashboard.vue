@@ -60,7 +60,7 @@
                                     </td>
                                     <td
                                         class="hidden whitespace-nowrap px-6 py-3 text-right text-sm text-gray-500 md:table-cell">
-                                        <a target="_blank" :href="project.url" v-text="project.urlPlaceholder" />
+                                        <a target="_blank" :href="project.url.href" v-text="project.url.placeholder" />
                                     </td>
                                     <td class="whitespace-nowrap px-6 py-3 text-right text-sm font-medium">
                                         <a :href="'/projects/edit/' + project.id" class="text-indigo-600 hover:text-indigo-900">Edit</a>
@@ -94,7 +94,7 @@
         await $apiFetch('/api/projects', {
             method: "GET"
         }).then(result => {
-            projects = result;
+            projects = result.data;
         })
     } catch(err) {
         console.log(err);
