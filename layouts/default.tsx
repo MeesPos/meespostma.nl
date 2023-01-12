@@ -1,3 +1,4 @@
+import ContactSection from "../components/contact";
 import Navigation from "../components/navigation";
 
 export default function DefaultLayout({
@@ -14,7 +15,7 @@ export default function DefaultLayout({
           {children}
         </div>
 
-        {/* <ContactSection /> */}
+        <ContactSection />
 
         {/* <Footer /> */}
       </div>
