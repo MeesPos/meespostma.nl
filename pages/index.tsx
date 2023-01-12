@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Button from "../components/button";
 import DefaultLayout from "../layouts/default";
 
 export default function Home() {
@@ -17,9 +18,10 @@ export default function Home() {
             </p>
 
             <a href="/about-me">
-              {/* <Button title="$t('home.header.button')"
-                            className="mt-4 sm:mt-6"
-                    /> */}
+              <Button
+                title="$t('home.header.button')"
+                className="mt-4 sm:mt-6"
+              />
             </a>
           </div>
 
@@ -40,16 +42,11 @@ export default function Home() {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-8 sm:gap-32 mt-8">
-            {/* <ProjectCard v-for="(project, i) in projects"
-                            :key="i" 
-                            :project="project"
-                /> */}
+            {/* <ProjectCard project={[]} /> */}
           </div>
 
           <a href="/projects">
-            {/* <Button :title="$t('home.projects.button')"
-                            className="mt-6"
-                    /> */}
+            <Button title="$t('home.projects.button')" className="mt-6" />
           </a>
         </div>
       </main>
