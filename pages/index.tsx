@@ -1,12 +1,58 @@
-import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "@next/font/google";
-import styles from "../styles/Home.module.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import DefaultLayout from "../layouts/default";
 
 export default function Home() {
-  return <>
-    <p className="text-red-400 text-center">Test</p>
-  </>;
+  return (
+    <DefaultLayout>
+      <main className="w-11/12 md:w-auto mx-auto">
+        <div className="flex flex-col-reverse md:flex-row md:gap-12 lg:gap-48 items-center sm:my-12">
+          <div className="flex-initial">
+            <h2
+              className="text-xl sm:text-4xl font-medium mt-4 md:mt-0"
+              v-text="$t('home.header.title')"
+            />
+
+            <p className="leading-6 mt-4 sm:mt-6">
+              $t('home.header.description')
+            </p>
+
+            <a href="/about-me">
+              {/* <Button title="$t('home.header.button')"
+                            className="mt-4 sm:mt-6"
+                    /> */}
+            </a>
+          </div>
+
+          <div className="flex-none relative">
+            <Image
+              src="/images/mees.jpeg"
+              alt="Image of Mees Postma"
+              fill={true}
+              className="rounded-md sm:h-96 sm:w-96 object-cover"
+            />
+          </div>
+        </div>
+
+        <div className="mb-16 mt-8 sm:mt-0">
+          <h2
+            className="text-xl sm:text-4xl font-medium mt-4 sm:mt-0"
+            v-text="$t('home.projects.title')"
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-8 sm:gap-32 mt-8">
+            {/* <ProjectCard v-for="(project, i) in projects"
+                            :key="i" 
+                            :project="project"
+                /> */}
+          </div>
+
+          <a href="/projects">
+            {/* <Button :title="$t('home.projects.button')"
+                            className="mt-6"
+                    /> */}
+          </a>
+        </div>
+      </main>
+    </DefaultLayout>
+  );
 }
