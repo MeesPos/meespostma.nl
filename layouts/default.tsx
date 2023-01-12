@@ -1,4 +1,5 @@
 import ContactSection from "../components/contact";
+import Footer from "../components/footer";
 import Navigation from "../components/navigation";
 
 export default function DefaultLayout({
@@ -17,7 +18,7 @@ export default function DefaultLayout({
 
         <ContactSection />
 
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </div>
   );
