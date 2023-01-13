@@ -1,12 +1,17 @@
 import Image from "next/image";
 import Button from "../components/button";
 import DefaultLayout from "../layouts/default";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import ProjectCard from "../components/projectCard";
 
 export default function Home() {
+  const [projects, setProjects] = useState<Array<any>>([]);
+
   useEffect(() => {
     async function getDatabase() {
-      console.log(await (await fetch('/api/notion')).json());
+      const response = await fetch("/api/notion?page_size=3");
+
+      setProjects((await response.json()).results);
     }
 
     getDatabase();
@@ -51,7 +56,9 @@ export default function Home() {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-8 sm:gap-32 mt-8">
-            {/* <ProjectCard project={[]} /> */}
+            {projects.map((project) => {
+              return <ProjectCard project={project} key={project.id} />;
+            })}
           </div>
 
           <a href="/projects">

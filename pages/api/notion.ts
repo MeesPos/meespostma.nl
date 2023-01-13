@@ -1,4 +1,4 @@
-import { Client, LogLevel } from "@notionhq/client";
+import { Client } from "@notionhq/client";
 import type { NextApiResponse, NextApiRequest } from "next";
 
 const notion = new Client({
@@ -8,7 +8,8 @@ const notion = new Client({
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const response = await notion.databases.query({
     database_id: process.env.NEXT_PUBLIC_NOTION_DATABASE_ID as string,
+    page_size: Number(req.query.page_size),
   });
 
   res.status(200).json(response);
-}
+};
