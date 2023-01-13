@@ -1,3 +1,5 @@
+import LanguageSwitch from "./languageSwitch";
+
 export default function Navigation() {
   const navItems: Array<{
     title: string;
@@ -42,7 +44,7 @@ export default function Navigation() {
         </div>
 
         <div className="inline-flex items-center md:ml-5 space-x-6 lg:justify-end">
-          {/* <LanguageSwitch /> */}
+          <LanguageSwitch />
 
           {/* <ModeToggle /> */}
         </div>
