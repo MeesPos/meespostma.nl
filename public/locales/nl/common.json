@@ -1,0 +1,37 @@
+{
+    "pages": {
+        "about-me": "Over mij",
+        "projects": "Projecten"
+    },
+    "home": {
+        "header": {
+            "title": "Software developer & Reisliefhebber",
+            "description": "Mijn naam is Mees Postma, momenteel studeer ik HBO-ICT op de Hogeschool Utrecht. Buiten school beheer ik ook nog een bedrijf genaamd Hubsor. Voor meer informatie over mij, kijk op de <b>Over mij</b> pagina!",
+            "button": "Over mij"
+        },
+        "projects": {
+            "title": "Mijn Projecten",
+            "button": "Alle Projecten"
+        }
+    },
+    "contact": {
+        "title": "Neem contact op",
+        "description": "Heb je een vraag, of wil je meer over mij weten? Neem dan contact met me op. Stuur mij een mail, of ga naar mijn LinkedIn."
+    },
+    "about-me": {
+        "header": {
+            "title": "Hallo, ik ben Mees Postma",
+            "description": "Ik ben een Software Developer uit Nederland. In 2019 ben ik begonnen met de opleiding Software Development op het Mediacollege, in 2022 heb ik mijn diploma gehaald. Vanaf 2022 ben ik bezig met HBO-ICT op Hogeschool Utrecht.<br><br>Buiten school beheer ik ook een bedrijf genaamd Hubsor. Hier maak ik websites en platforms voor klanten. Dit bedrijf doe ik samen met Cornell van der Straaten.<br><br>Ik ben een grote reisliefhebber. Ik ontdek graag de wereld. Andere culturen ontdekken, mooie plekken zien en genieten van de natuur is wat ik het liefst doe.<br><br>Ook speel ik ijshockey bij Alcmaria Flames in Alkmaar. Hier speel ik al meer dan 5 jaar met alle plezier Ijshockey.<br><br>Wil je meer over mij weten? Neem dan contact met me op. Wil je al mijn ervaringen zien, bekijk dan mijn CV."
+        },
+        "projects": {
+            "title": "Bekijk nog deze projecten",
+            "button": "Alle Projecten"
+        }
+    },
+    "projects": {
+        "header": {
+            "title": "Bekijk mijn projecten",
+            "description": "Op deze pagina kan je alle projecten waar ik trots op ben zien. Deze projecten heb ik voor mijn bedrijf, tijdens school en in mijn eigen tijd gemaakt."
+        }
+    }
+}
