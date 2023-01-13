@@ -1,8 +1,17 @@
 import Image from "next/image";
 import Button from "../components/button";
 import DefaultLayout from "../layouts/default";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    async function getDatabase() {
+      console.log(await (await fetch('/api/notion')).json());
+    }
+
+    getDatabase();
+  }, []);
+
   return (
     <DefaultLayout>
       <main className="w-11/12 md:w-auto mx-auto">
