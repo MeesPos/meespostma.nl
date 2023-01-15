@@ -40,12 +40,13 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="flex-none relative">
+          <div className="flex-none relative sm:h-96 sm:w-96">
             <Image
               src="/images/mees.jpeg"
               alt="Image of Mees Postma"
-              fill={true}
-              className="rounded-md sm:h-96 sm:w-96 object-cover"
+              layout="fill" // required
+              objectFit="cover" // change to suit your needs
+              className="rounded-md"
             />
           </div>
         </div>
