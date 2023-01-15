@@ -45,11 +45,7 @@ export default function Home({ projects }: { projects: Array<any> }) {
 
           <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-8 sm:gap-32 mt-8">
             {projects.map((project) => {
-              return (
-                <div>
-                  <ProjectCard project={project} key={project.id} />
-                </div>
-              );
+              return <ProjectCard project={project} key={project.id} />;
             })}
           </div>
 

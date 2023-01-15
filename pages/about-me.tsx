@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import Button from "../components/button";
 import ProjectCard from "../components/projectCard";
 import DefaultLayout from "../layouts/default";
@@ -6,20 +5,8 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
 
-export default function AboutMe() {
-  const [projects, setProjects] = useState<Array<any>>([]);
-
+export default function AboutMe({ projects }: { projects: Array<any> }) {
   const { t } = useTranslation("about-me");
-
-  useEffect(() => {
-    async function getDatabase() {
-      const response = await fetch("/api/notion?page_size=3");
-
-      setProjects((await response.json()).results);
-    }
-
-    getDatabase();
-  }, []);
 
   return (
     <DefaultLayout>
@@ -46,7 +33,7 @@ export default function AboutMe() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-8 sm:gap-32 mt-8">
             {projects.map((project) => {
-              return <ProjectCard key={project.id} project={project} />;
+              return <ProjectCard project={project} key={project.id} />;
             })}
           </div>
 
@@ -60,9 +47,14 @@ export default function AboutMe() {
 }
 
 export async function getStaticProps({ locale }: any) {
+  const res = await fetch(
+    process.env.NEXT_PUBLIC_API_ROUTES_URL + "/api/notion?page_size=3"
+  );
+
   return {
     props: {
       ...(await serverSideTranslations(locale, ["about-me", "contact", "pages"])),
+      projects: (await res.json()).results,
     },
   };
 }
