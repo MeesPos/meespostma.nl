@@ -13,15 +13,5 @@
     "contact": {
         "title": "Contact me",
         "description": "Do you have a question, or do you want to know more about me? Please contact me. Send me an email, or go to my LinkedIn."
-    },
-    "about-me": {
-        "header": {
-            "title": "Hi, I'm Mees Postma",
-            "description": "I am a Software Developer from the Netherlands. In 2019 I started the Software Development course at the Media College, in 2022 I obtained my diploma. From 2022 I will be working on HBO-ICT at Hogeschool Utrecht.<br><br>Outside of school I also manage a company called Hubsor. Here I create websites and platforms for clients. I do this company together with Cornell van der Straaten.<br><br>I am a big travel enthusiast. I like to discover the world. Discovering other cultures, seeing beautiful places and enjoying nature is what I prefer to do.<br><br>I also play ice hockey at Alcmaria Flames in Alkmaar. I have enjoyed playing Ice Hockey here for over 5 years.<br><br>Want to know more about me? Please contact me. If you want to see all my experiences, check out my CV."
-        },
-        "projects": {
-            "title": "View these projects",
-            "button": "All Projects"
-        }
     }
 }
