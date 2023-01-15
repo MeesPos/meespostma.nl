@@ -1,16 +1,19 @@
+import { useTranslation } from "next-i18next";
 import LanguageSwitch from "./languageSwitch";
 
 export default function Navigation() {
+  const { t } = useTranslation("pages");
+
   const navItems: Array<{
     title: string;
     href: string;
   }> = [
     {
-      title: "pages.about-me",
+      title: t("about-me"),
       href: "/about-me",
     },
     {
-      title: "pages.projects",
+      title: t("projects"),
       href: "/projects",
     },
   ];
@@ -36,7 +39,7 @@ export default function Navigation() {
                   href={navItem.href}
                   className="mx-4 md:mx-0 md:mr-8 leading-6 text-black hover:text-gray-900 dark:text-white"
                 >
-                  $t({navItem.title})
+                  {navItem.title}
                 </a>
               );
             })}

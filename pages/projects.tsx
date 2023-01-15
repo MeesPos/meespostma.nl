@@ -47,7 +47,7 @@ export default function Project() {
 export async function getStaticProps({ locale }: any) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["projects", "contact"])),
+      ...(await serverSideTranslations(locale, ["projects", "contact", "pages"])),
       // Will be passed to the page component as props
     },
   };
