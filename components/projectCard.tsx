@@ -1,8 +1,14 @@
 import { Icon } from "@iconify/react";
+import { slugify } from "../utils/slugify";
 
 export default function ProjectCard({ project }: { project: any }) {
   return (
-    <a href={project.properties.Href.url} target="_blank">
+    <a
+      href={
+        "/project/" + slugify(project.properties.Name.title[0].text.content)
+      }
+      target="_blank"
+    >
       <div className="bg-white rounded-full w-10 h-10 shadow-md relative">
         <img
           src={project.properties.Logo.files[0].file.url}
