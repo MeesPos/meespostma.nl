@@ -2,6 +2,7 @@ import ProjectCard from "../components/projectCard";
 import DefaultLayout from "../layouts/default";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import { getProjects } from "../utils/notion";
 
 export default function Project({ projects }: { projects: Array<any> }) {
   const { t } = useTranslation("projects");
@@ -30,10 +31,6 @@ export default function Project({ projects }: { projects: Array<any> }) {
 }
 
 export async function getStaticProps({ locale }: any) {
-  const res = await fetch(
-    process.env.NEXT_PUBLIC_API_ROUTES_URL + "/api/notion?page-size=99"
-  );
-
   return {
     props: {
       ...(await serverSideTranslations(locale, [
@@ -41,7 +38,7 @@ export async function getStaticProps({ locale }: any) {
         "contact",
         "pages",
       ])),
-      projects: (await res.json()).results,
+      projects: await getProjects()
     },
   };
 }
