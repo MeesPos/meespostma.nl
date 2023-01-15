@@ -53,7 +53,11 @@ export async function getStaticProps({ locale }: any) {
 
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["about-me", "contact", "pages"])),
+      ...(await serverSideTranslations(locale, [
+        "about-me",
+        "contact",
+        "pages",
+      ])),
       projects: (await res.json()).results,
     },
   };
