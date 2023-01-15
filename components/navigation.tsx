@@ -7,6 +7,8 @@ import ModeToggle from "./modeToggle";
 export default function Navigation() {
   const { t } = useTranslation("pages");
 
+  const router = useRouter();
+
   const navItems: Array<{
     title: string;
     href: string;
@@ -41,7 +43,7 @@ export default function Navigation() {
                   key={index}
                   href={navItem.href}
                   className={`${
-                    useRouter().pathname === navItem.href ? "font-bold" : ""
+                    router.pathname === navItem.href ? "font-bold" : ""
                   } mx-4 md:mx-0 md:mr-8 leading-6 text-black hover:text-gray-900 dark:text-white`}
                 >
                   {navItem.title}
