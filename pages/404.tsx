@@ -1,0 +1,31 @@
+import Link from "next/link";
+import Button from "../components/button";
+
+export default function NotFoundError() {
+  return (
+    <div className="min-h-screen dark:bg-zinc-900 bg-white py-16 px-6 sm:py-24 md:grid md:place-items-center lg:px-8">
+      <div className="mx-auto max-w-max">
+        <main className="sm:flex">
+          <p className="text-4xl font-bold tracking-tight text-sky-500 sm:text-5xl">
+            404
+          </p>
+          <div className="sm:ml-6">
+            <div className="sm:border-l sm:border-gray-200 sm:pl-6">
+              <h1 className="text-4xl font-bold tracking-tight dark:text-white text-gray-900 sm:text-5xl">
+                Page not found
+              </h1>
+              <p className="mt-1 text-base dark:text-gray-300 text-gray-500">
+                Please check the URL in the address bar and try again.
+              </p>
+            </div>
+            <div className="mt-8 flex space-x-3 sm:border-l sm:border-transparent sm:pl-6">
+              <Link href="/">
+                <Button title="Go back home" />
+              </Link>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  );
+}
