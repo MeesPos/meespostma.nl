@@ -31,7 +31,7 @@ export default function Project({ projects }: { projects: Array<any> }) {
 
 export async function getStaticProps({ locale }: any) {
   const res = await fetch(
-    process.env.NEXT_PUBLIC_API_ROUTES_URL + "/api/notion"
+    process.env.NEXT_PUBLIC_API_ROUTES_URL + "/api/notion?page-size=99"
   );
 
   return {
