@@ -1,5 +1,6 @@
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import LanguageSwitch from "./languageSwitch";
 import ModeToggle from "./modeToggle";
 
@@ -39,7 +40,9 @@ export default function Navigation() {
                 <Link
                   key={index}
                   href={navItem.href}
-                  className="mx-4 md:mx-0 md:mr-8 leading-6 text-black hover:text-gray-900 dark:text-white"
+                  className={`${
+                    useRouter().pathname === navItem.href ? "font-bold" : ""
+                  } mx-4 md:mx-0 md:mr-8 leading-6 text-black hover:text-gray-900 dark:text-white`}
                 >
                   {navItem.title}
                 </Link>
