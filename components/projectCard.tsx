@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function ProjectCard({ project }: { project: any }) {
   return (
-    <Link href={project.properties.Href.url}>
+    <Link href={project.properties.Href.url} target="_blank">
       <div className="bg-white rounded-full w-10 h-10 shadow-md relative">
         <img
           src={project.properties.Logo.files[0].file.url}
