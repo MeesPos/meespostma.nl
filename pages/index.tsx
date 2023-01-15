@@ -44,8 +44,8 @@ export default function Home() {
             <Image
               src="/images/mees.jpeg"
               alt="Image of Mees Postma"
-              layout="fill" // required
-              objectFit="cover" // change to suit your needs
+              layout="fill"
+              objectFit="cover"
               className="rounded-md"
             />
           </div>
