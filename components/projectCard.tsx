@@ -7,7 +7,6 @@ export default function ProjectCard({ project }: { project: any }) {
       href={
         "/project/" + slugify(project.properties.Name.title[0].text.content)
       }
-      target="_blank"
     >
       <div className="bg-white rounded-full w-10 h-10 shadow-md relative">
         <img
