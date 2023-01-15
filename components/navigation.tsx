@@ -1,5 +1,6 @@
 import { useTranslation } from "next-i18next";
 import LanguageSwitch from "./languageSwitch";
+import ModeToggle from "./modeToggle";
 
 export default function Navigation() {
   const { t } = useTranslation("pages");
@@ -49,7 +50,7 @@ export default function Navigation() {
         <div className="inline-flex items-center md:ml-5 space-x-6 lg:justify-end">
           <LanguageSwitch />
 
-          {/* <ModeToggle /> */}
+          <ModeToggle />
         </div>
       </div>
     </section>
