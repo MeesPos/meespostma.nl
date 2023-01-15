@@ -1,16 +1,19 @@
 import dayjs from "dayjs";
+import { useTranslation } from "next-i18next";
 
 export default function Footer() {
+  const { t } = useTranslation("pages");
+
   const navItems: Array<{
     title: string;
     href: string;
   }> = [
     {
-      title: "pages.about-me",
+      title: t("about-me"),
       href: "/about-me",
     },
     {
-      title: "pages.projects",
+      title: t("projects"),
       href: "/projects",
     },
   ];
@@ -24,7 +27,7 @@ export default function Footer() {
           {navItems.map((navItem, index) => {
             return (
               <a key={index} href={navItem.href}>
-                $t(navItem.title)
+                { navItem.title }
               </a>
             );
           })}
