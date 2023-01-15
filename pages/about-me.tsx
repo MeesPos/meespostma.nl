@@ -61,7 +61,7 @@ export default function AboutMe() {
 export async function getStaticProps({ locale }: any) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["about-me"])),
+      ...(await serverSideTranslations(locale, ["about-me", "contact"])),
     },
   };
 }
