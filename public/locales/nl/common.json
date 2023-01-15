@@ -3,17 +3,6 @@
         "about-me": "Over mij",
         "projects": "Projecten"
     },
-    "home": {
-        "header": {
-            "title": "Software developer & Reisliefhebber",
-            "description": "Mijn naam is Mees Postma, momenteel studeer ik HBO-ICT op de Hogeschool Utrecht. Buiten school beheer ik ook nog een bedrijf genaamd Hubsor. Voor meer informatie over mij, kijk op de <b>Over mij</b> pagina!",
-            "button": "Over mij"
-        },
-        "projects": {
-            "title": "Mijn Projecten",
-            "button": "Alle Projecten"
-        }
-    },
     "contact": {
         "title": "Neem contact op",
         "description": "Heb je een vraag, of wil je meer over mij weten? Neem dan contact met me op. Stuur mij een mail, of ga naar mijn LinkedIn."

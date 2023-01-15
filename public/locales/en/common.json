@@ -1,15 +1,4 @@
 {
-    "home": {
-        "header": {
-            "title": "Software developer & Travel enthusiast",
-            "description": "My name is Mees Postma, I am currently studying HBO-ICT at the Hogeschool Utrecht. Outside of school, I also manage a company called Hubsor. For more information about me, check out the <b>About me</b> page!",
-            "button": "About me"
-        },
-        "projects": {
-            "title": "My Projects",
-            "button": "All Projects"
-        }
-    },
     "contact": {
         "title": "Contact me",
         "description": "Do you have a question, or do you want to know more about me? Please contact me. Send me an email, or go to my LinkedIn."
