@@ -8,7 +8,7 @@ const notion = new Client({
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const response = await notion.databases.query({
     database_id: process.env.NEXT_PUBLIC_NOTION_DATABASE_ID as string,
-    page_size: req.query.page_size ? Number(req.query.page_size) : undefined,
+    page_size: req.query.page_size !== undefined ? Number(req.query.page_size) : req.query.page_size,
   });
 
   res.status(200).json(response);
