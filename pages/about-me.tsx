@@ -34,7 +34,7 @@ export default function AboutMe() {
             dangerouslySetInnerHTML={{ __html: t("header.description") }}
           />
 
-          <Link href="#">
+          <Link href="/cv-mees.pdf" target="_blank">
             <Button title="Curriculum Vitae" className="mt-6" />
           </Link>
         </div>
