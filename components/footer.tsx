@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
 import { useTranslation } from "next-i18next";
+import Link from "next/link";
 
 export default function Footer() {
   const { t } = useTranslation("pages");
@@ -26,9 +27,9 @@ export default function Footer() {
         <div className="flex flex-wrap gap-6 font-bold grow mx-auto">
           {navItems.map((navItem, index) => {
             return (
-              <a key={index} href={navItem.href}>
+              <Link key={index} href={navItem.href}>
                 { navItem.title }
-              </a>
+              </Link>
             );
           })}
         </div>

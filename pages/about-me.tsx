@@ -4,6 +4,7 @@ import ProjectCard from "../components/projectCard";
 import DefaultLayout from "../layouts/default";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import Link from "next/link";
 
 export default function AboutMe() {
   const [projects, setProjects] = useState<Array<any>>([]);
@@ -33,9 +34,9 @@ export default function AboutMe() {
             dangerouslySetInnerHTML={{ __html: t("header.description") }}
           />
 
-          <a href="#">
+          <Link href="#">
             <Button title="Curriculum Vitae" className="mt-6" />
-          </a>
+          </Link>
         </div>
 
         <div className="mb-16 mt-8 sm:mt-0 w-11/12 xl:w-full mx-auto">
@@ -49,9 +50,9 @@ export default function AboutMe() {
             })}
           </div>
 
-          <a href="/projects">
+          <Link href="/projects">
             <Button title={t("projects.button")} className="mt-6" />
-          </a>
+          </Link>
         </div>
       </main>
     </DefaultLayout>

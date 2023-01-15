@@ -1,4 +1,5 @@
 import { useTranslation } from "next-i18next";
+import Link from "next/link";
 import Button from "./button";
 
 export default function ContactSection() {
@@ -13,16 +14,16 @@ export default function ContactSection() {
       <p className="mt-6">{ t('description') }</p>
 
       <div className="flex gap-6 sm:gap-12 justify-center mt-6">
-        <a href="mailto:mail@meespostma.nl">
+        <Link href="mailto:mail@meespostma.nl">
           <Button title="E-mail" className="px-6 sm:px-12" />
-        </a>
+        </Link>
 
-        <a
+        <Link
           href="https://nl.linkedin.com/in/mees-postma-a911b1196"
           target="_blank"
         >
           <Button title="LinkedIn" className="px-6 sm:px-12" />
-        </a>
+        </Link>
       </div>
     </div>
   );

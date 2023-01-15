@@ -1,8 +1,9 @@
 import { Icon } from "@iconify/react";
+import Link from "next/link";
 
 export default function ProjectCard({ project }: { project: any }) {
   return (
-    <a href={project.properties.Href.url}>
+    <Link href={project.properties.Href.url}>
       <div className="bg-white rounded-full w-10 h-10 shadow-md relative">
         <img
           src={project.properties.Logo.files[0].file.url}
@@ -18,15 +19,15 @@ export default function ProjectCard({ project }: { project: any }) {
         {project.properties.Description.rich_text[0].text.content}
       </p>
 
-      <a
+      <Link
         href={project.properties.Href.url}
         className="mt-4 flex items-center gap-2 text-zinc-400"
       >
         <Icon icon={"heroicons-solid:link"} />
-        <a target="_blank" href={project.properties.Href.url}>
+        <Link target="_blank" href={project.properties.Href.url}>
           {project.properties.URL_Placeholder.rich_text[0].text.content}
-        </a>
-      </a>
-    </a>
+        </Link>
+      </Link>
+    </Link>
   );
 }

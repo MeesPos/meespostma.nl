@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import ProjectCard from "../components/projectCard";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import Link from "next/link";
 
 export default function Home() {
   const [projects, setProjects] = useState<Array<any>>([]);
@@ -35,9 +36,9 @@ export default function Home() {
               dangerouslySetInnerHTML={{ __html: t("header.description") }}
             />
 
-            <a href="/about-me">
+            <Link href="/about-me">
               <Button title={t("header.button")} className="mt-4 sm:mt-6" />
-            </a>
+            </Link>
           </div>
 
           <div className="flex-none relative sm:h-96 sm:w-96">
@@ -62,9 +63,9 @@ export default function Home() {
             })}
           </div>
 
-          <a href="/projects">
+          <Link href="/projects">
             <Button title={t("projects.button")} className="mt-6" />
-          </a>
+          </Link>
         </div>
       </main>
     </DefaultLayout>
