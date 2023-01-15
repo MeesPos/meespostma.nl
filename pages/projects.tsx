@@ -7,7 +7,7 @@ import { useTranslation } from "next-i18next";
 export default function Project() {
   const [projects, setProjects] = useState<Array<any>>([]);
 
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("projects");
 
   useEffect(() => {
     async function getDatabase() {
@@ -24,11 +24,11 @@ export default function Project() {
       <main>
         <div className="my-12 mx-auto xl:ml-0 xl:w-7/12 w-11/12">
           <h2 className="text-xl sm:text-4xl font-medium mt-4 md:mt-0">
-            {t("projects.header.title")}
+            {t("header.title")}
           </h2>
 
           <p className="leading-6 mt-4 sm:mt-6">
-            {t("projects.header.description")}
+            {t("header.description")}
           </p>
         </div>
 
@@ -47,7 +47,7 @@ export default function Project() {
 export async function getStaticProps({ locale }: any) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common"])),
+      ...(await serverSideTranslations(locale, ["projects"])),
       // Will be passed to the page component as props
     },
   };

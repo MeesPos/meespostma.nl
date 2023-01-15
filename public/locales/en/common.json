@@ -1,8 +1,4 @@
 {
-    "pages": {
-        "about-me": "About me",
-        "projects": "Projects"
-    },
     "home": {
         "header": {
             "title": "Software developer & Travel enthusiast",
@@ -26,12 +22,6 @@
         "projects": {
             "title": "View these projects",
             "button": "All Projects"
-        }
-    },
-    "projects": {
-        "header": {
-            "title": "View my projects",
-            "description": "On this page you can see all the projects I am proud of. I made these projects for my company, during school and in my own time."
         }
     }
 }
