@@ -6,12 +6,19 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import { getProjects } from "../utils/notion";
+import Head from "next/head";
 
 export default function Home({ projects }: { projects: Array<any> }) {
   const { t } = useTranslation("home");
 
   return (
-    <DefaultLayout>
+    <DefaultLayout
+      description={t("seo.description") as string}
+      title="Mees Postma"
+      og_type="Portfolio Mees Postma"
+      image="/images/mees-postma.png"
+      url="meespostma.nl"
+    >
       <main className="w-11/12 md:w-auto mx-auto">
         <div className="flex flex-col-reverse md:flex-row md:gap-12 lg:gap-48 items-center sm:my-12">
           <div className="flex-initial">
@@ -62,12 +69,8 @@ export default function Home({ projects }: { projects: Array<any> }) {
 export async function getStaticProps({ locale }: any) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, [
-        "home",
-        "contact",
-        "pages"
-      ])),
-      projects: await getProjects(3)
+      ...(await serverSideTranslations(locale, ["home", "contact", "pages"])),
+      projects: await getProjects(3),
     },
   };
 }

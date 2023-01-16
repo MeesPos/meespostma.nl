@@ -7,5 +7,8 @@
     "projects": {
         "title": "Mijn Projecten",
         "button": "Alle Projecten"
+    },
+    "seo": {
+        "description": "Mijn naam is Mees Postma, momenteel studeer ik HBO-ICT op de Hogeschool Utrecht. Buiten school beheer ik ook nog een bedrijf genaamd Hubsor."
     }
 }
