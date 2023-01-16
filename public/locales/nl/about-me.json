@@ -6,5 +6,8 @@
     "projects": {
         "title": "Bekijk nog deze projecten",
         "button": "Alle Projecten"
+    },
+    "seo": {
+        "description": "My name is Mees Postma, I am currently a HBO-ICT student at Hogeschool Utrecht and co-owner of Hubsor. Do you want to know more about me? Then view this page."
     }
 }

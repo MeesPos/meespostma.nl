@@ -6,14 +6,12 @@ import Navigation from "../components/navigation";
 export default function DefaultLayout({
   description,
   title,
-  og_type,
   image,
   url,
   children,
 }: {
   description: string;
   title: string;
-  og_type: string;
   image: string;
   url: string;
   children: React.ReactNode;
@@ -27,7 +25,7 @@ export default function DefaultLayout({
 
         <meta name="robots" content="index, follow" />
 
-        <meta property="og:type" content={og_type} />
+        <meta property="og:type" content="Portfolio Mees Postma" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={image} />

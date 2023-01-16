@@ -10,7 +10,12 @@ export default function AboutMe({ projects }: { projects: Array<any> }) {
   const { t } = useTranslation("about-me");
 
   return (
-    <DefaultLayout>
+    <DefaultLayout
+      description={t("seo.description") as string}
+      title={"Mees Postma | " + t("about-me", { ns: "pages" })}
+      image="/images/mees-postma.png"
+      url="meespostma.nl/about-me"
+    >
       <main>
         <div className="my-12 mx-auto xl:ml-0 xl:w-7/12 w-11/12">
           <h2 className="text-xl sm:text-4xl font-medium mt-4 md:mt-0">
@@ -55,7 +60,7 @@ export async function getStaticProps({ locale }: any) {
         "contact",
         "pages",
       ])),
-      projects: await getProjects(3)
+      projects: await getProjects(3),
     },
   };
 }

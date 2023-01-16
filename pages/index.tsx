@@ -15,7 +15,6 @@ export default function Home({ projects }: { projects: Array<any> }) {
     <DefaultLayout
       description={t("seo.description") as string}
       title="Mees Postma"
-      og_type="Portfolio Mees Postma"
       image="/images/mees-postma.png"
       url="meespostma.nl"
     >
