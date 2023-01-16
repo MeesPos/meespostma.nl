@@ -25,6 +25,8 @@ export default function DefaultLayout({
 
         <meta name="robots" content="index, follow" />
 
+        <link rel="cannonical" href="https://www.meespostma.nl" />
+
         <meta property="og:type" content="Portfolio Mees Postma" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
