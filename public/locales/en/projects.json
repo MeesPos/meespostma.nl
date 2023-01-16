@@ -2,5 +2,8 @@
     "header": {
         "title": "View my projects",
         "description": "On this page you can see all the projects I am proud of. I made these projects for my company, during school and in my own time."
+    },
+    "seo": {
+        "description": "My name is Mees Postma, I am currently a HBO-ICT student at Hogeschool Utrecht and co-owner of Hubsor. Want to see what kind of projects I've made? Then view this page."
     }
 }

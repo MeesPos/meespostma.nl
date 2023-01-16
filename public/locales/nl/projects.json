@@ -2,5 +2,8 @@
     "header": {
         "title": "Bekijk mijn projecten",
         "description": "Op deze pagina kan je alle projecten waar ik trots op ben zien. Deze projecten heb ik voor mijn bedrijf, tijdens school en in mijn eigen tijd gemaakt."
+    },
+    "seo": {
+        "description": "Mijn naam is Mees Postma, ik ben momenteel student HBO-ICT op Hogeschool Utrecht en mede-eigenaar van Hubsor. Wil je zien wat voor projecten ik gemaakt heb? Bekijk dan deze pagina."
     }
 }
