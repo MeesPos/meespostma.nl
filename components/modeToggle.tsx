@@ -12,7 +12,7 @@ export default function ModeToggle() {
   if (!mounted) return null;
 
   return (
-    <div>
+    <div className="flex">
       <button
         className="cursor-pointer"
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}
@@ -20,12 +20,12 @@ export default function ModeToggle() {
         {theme === "light" ? (
           <Icon
             icon={"heroicons-outline:sun"}
-            className="w-6 h-6 text-zinc-800"
+            className="lg:w-5 lg:h-5 w-6 h-6 text-zinc-800"
           />
         ) : (
           <Icon
             icon={"heroicons-outline:moon"}
-            className="w-6 h-6 text-yellow-300"
+            className="lg:w-5 lg:h-5 w-6 h-6 text-yellow-300"
           />
         )}
       </button>

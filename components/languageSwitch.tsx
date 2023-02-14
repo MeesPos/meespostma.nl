@@ -7,9 +7,9 @@ export default function LanguageSwitch() {
   const { pathname, query, asPath, locale } = router;
 
   return (
-    <div className="text-zinc-800 dark:text-white cursor-pointer">
+    <div className="cursor-pointer">
       <Link
-        className="flex gap-1 items-center cursor-pointer"
+        className="flex gap-1 items-center cursor-pointer text-sm leading-6 text-gray-900 dark:text-white "
         href={{ pathname, query }}
         as={asPath}
         locale={locale !== "nl" ? "nl" : "en"}

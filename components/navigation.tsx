@@ -1,13 +1,15 @@
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import LanguageSwitch from "./languageSwitch";
 import ModeToggle from "./modeToggle";
+import { Dialog } from "@headlessui/react";
+import { useState } from "react";
+import { Icon } from "@iconify/react";
 
 export default function Navigation() {
   const { t } = useTranslation("pages");
 
-  const router = useRouter();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems: Array<{
     title: string;
@@ -24,41 +26,86 @@ export default function Navigation() {
   ];
 
   return (
-    <section className="w-full bg-white dark:bg-zinc-900">
-      <div className="container flex flex-col flex-wrap items-center justify-between py-8 mx-auto md:flex-row">
-        <div className="relative flex flex-col md:flex-row">
-          <Link
-            href="/"
-            className="flex items-center mb-5 font-bold text-gray-900 dark:text-white lg:w-auto lg:items-center lg:justify-center md:mb-0"
-          >
-            <span className="mx-auto text-xl leading-none select-none">
-              Mees Postma
-            </span>
-          </Link>
-
-          <nav className="flex flex-wrap items-center mb-5 text-base md:mb-0 md:pl-8 md:ml-8 md:border-l md:border-zinc-100">
-            {navItems.map((navItem, index) => {
-              return (
-                <Link
-                  key={index}
-                  href={navItem.href}
-                  className={`${
-                    router.pathname === navItem.href ? "font-bold" : ""
-                  } mx-4 md:mx-0 md:mr-8 leading-6 text-black hover:text-gray-900 dark:text-white`}
-                >
-                  {navItem.title}
-                </Link>
-              );
-            })}
-          </nav>
+    <div className="px-6 pt-6 lg:px-8">
+      <nav className="flex items-center justify-between" aria-label="Global">
+        <div className="flex lg:flex-1">
+          <a href="/" className="-m-1.5 p-1.5">
+            <span className="font-bold">Mees Postma</span>
+          </a>
         </div>
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
 
-        <div className="inline-flex items-center md:ml-5 space-x-6 lg:justify-end">
+            <Icon
+              icon={"heroicons:bars-3-bottom-left-20-solid"}
+              className="h-6 w-6 dark:text-white"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+        <div className="hidden lg:flex lg:gap-x-12">
+          {navItems.map((item) => (
+            <Link
+              key={item.title}
+              href={item.href}
+              className="text-sm font-semibold leading-6 "
+            >
+              {item.title}
+            </Link>
+          ))}
+        </div>
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-4 items-center">
           <LanguageSwitch />
 
           <ModeToggle />
         </div>
-      </div>
-    </section>
+      </nav>
+      <Dialog as="div" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+        <Dialog.Panel className="fixed inset-0 z-10 overflow-y-auto bg-white dark:bg-black px-6 py-6 lg:hidden">
+          <div className="flex items-center justify-between">
+            <a href="/" className="-m-1.5 p-1.5">
+              <span className="font-bold">Mees Postma</span>
+            </a>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-gray-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <Icon
+                icon={"heroicons:x-mark"}
+                className="h-6 w-6 dark:text-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-gray-500/10 dark:divide-white/10">
+              <div className="space-y-2 py-6">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.title}
+                    href={item.href}
+                    className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7"
+                  >
+                    {item.title}
+                  </Link>
+                ))}
+              </div>
+              <div className="py-6 flex flex-col space-y-2">
+                <LanguageSwitch />
+
+                <ModeToggle />
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </div>
   );
 }
