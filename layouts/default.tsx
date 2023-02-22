@@ -6,13 +6,11 @@ import Navigation from "../components/navigation";
 export default function DefaultLayout({
   description,
   title,
-  image,
   url,
   children,
 }: {
   description: string;
   title: string;
-  image: string;
   url: string;
   children: React.ReactNode;
 }) {
@@ -30,13 +28,11 @@ export default function DefaultLayout({
         <meta property="og:type" content="Portfolio Mees Postma" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={image} />
         <meta property="og:url" content={url} />
         <meta property="og:site_name" content="Mees Postma" />
 
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={image} />
         <meta name="twitter:site" content="MeesPos" />
         <meta name="twitter:creator" content="MeesPos" />
       </Head>

@@ -11,7 +11,6 @@ export default function Project({ projects }: { projects: Array<any> }) {
     <DefaultLayout
       description={t("seo.description") as string}
       title={t("projects", { ns: "pages" }) + " | Mees Postma"}
-      image="/images/mees-postma.png"
       url="meespostma.nl/projects"
     >
       <main className="px-6 lg:px-8">

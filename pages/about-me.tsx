@@ -13,7 +13,6 @@ export default function AboutMe({ projects }: { projects: Array<any> }) {
     <DefaultLayout
       description={t("seo.description") as string}
       title={t("about-me", { ns: "pages" }) + " | Mees Postma"}
-      image="/images/mees-postma.png"
       url="meespostma.nl/about-me"
     >
       <main className="px-6 lg:px-8">
