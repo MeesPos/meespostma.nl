@@ -33,15 +33,6 @@ export default function Home({ projects }: { projects: Array<any> }) {
               <Button title={t("header.button")} className="mt-4 sm:mt-6" />
             </Link>
           </div>
-
-          <div className="flex-none relative sm:h-96 sm:w-96">
-            <Image
-              src="/images/mees-postma.png"
-              alt="Image of Mees Postma"
-              fill={true}
-              className="rounded-md object-cover"
-            />
-          </div>
         </div>
 
         <div className="mb-16 mt-8 sm:mt-0">
