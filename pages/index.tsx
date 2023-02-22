@@ -6,7 +6,6 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import { getProjects } from "../utils/notion";
-import Head from "next/head";
 
 export default function Home({ projects }: { projects: Array<any> }) {
   const { t } = useTranslation("home");
@@ -18,7 +17,7 @@ export default function Home({ projects }: { projects: Array<any> }) {
       image="/images/mees-postma.png"
       url="meespostma.nl"
     >
-      <main className="w-11/12 md:w-auto mx-auto">
+      <main className="w-11/12 md:w-auto mx-auto px-6 lg:px-8">
         <div className="flex flex-col-reverse md:flex-row md:gap-12 lg:gap-48 items-center sm:my-12">
           <div className="flex-initial">
             <h2 className="text-xl sm:text-4xl font-medium mt-4 md:mt-0">
