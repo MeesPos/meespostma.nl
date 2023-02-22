@@ -23,7 +23,7 @@ export default function Footer() {
     <div className="mt-16">
       <div className="w-full border-t border-zinc-100" />
 
-      <div className="max-w-7xl mx-auto py-6 flex flex-col sm:flex-row w-11/12 lg:w-full px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto py-6 flex flex-col sm:flex-row lg:w-full px-6 lg:px-8">
         <div className="flex flex-wrap gap-6 font-bold grow mx-auto">
           {navItems.map((navItem, index) => {
             return (
