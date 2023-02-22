@@ -16,8 +16,8 @@ export default function AboutMe({ projects }: { projects: Array<any> }) {
       image="/images/mees-postma.png"
       url="meespostma.nl/about-me"
     >
-      <main>
-        <div className="my-12 mx-auto xl:ml-0 xl:w-7/12 w-11/12">
+      <main className="px-6 lg:px-8">
+        <div className="sm:my-24 lg:w-4/6 w-full">
           <h2 className="text-xl sm:text-4xl font-medium mt-4 md:mt-0">
             {t("header.title")}
           </h2>
@@ -32,7 +32,7 @@ export default function AboutMe({ projects }: { projects: Array<any> }) {
           </Link>
         </div>
 
-        <div className="mb-16 mt-8 sm:mt-0 w-11/12 xl:w-full mx-auto">
+        <div className="mb-16 mt-8 sm:mt-0 mx-auto">
           <h2 className="text-xl sm:text-4xl font-medium mt-4 sm:mt-0">
             {t("projects.title")}
           </h2>

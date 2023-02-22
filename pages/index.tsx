@@ -18,8 +18,8 @@ export default function Home({ projects }: { projects: Array<any> }) {
       url="meespostma.nl"
     >
       <main className="mx-auto px-6 lg:px-8">
-        <div className="flex flex-col-reverse md:flex-row md:gap-12 lg:gap-48 items-center sm:my-12">
-          <div className="flex-initial lg:w-4/6 my-8 w-full">
+        <div className="sm:my-24">
+          <div className="lg:w-4/6 w-full">
             <h2 className="text-xl sm:text-4xl font-medium mt-4 md:mt-0">
               {t("header.title")}
             </h2>
