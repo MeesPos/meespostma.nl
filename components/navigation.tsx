@@ -29,9 +29,9 @@ export default function Navigation() {
     <div className="px-6 pt-6 lg:px-8">
       <nav className="flex items-center justify-between" aria-label="Global">
         <div className="flex lg:flex-1">
-          <a href="/" className="-m-1.5 p-1.5">
+          <Link href="/" className="-m-1.5 p-1.5">
             <span className="font-bold">Mees Postma</span>
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -68,9 +68,9 @@ export default function Navigation() {
       <Dialog as="div" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <Dialog.Panel className="fixed inset-0 z-10 overflow-y-auto bg-white dark:bg-black px-6 py-6 lg:hidden">
           <div className="flex items-center justify-between">
-            <a href="/" className="-m-1.5 p-1.5">
+            <Link href="/" className="-m-1.5 p-1.5">
               <span className="font-bold">Mees Postma</span>
-            </a>
+            </Link>
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
