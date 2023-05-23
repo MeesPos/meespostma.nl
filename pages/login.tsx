@@ -1,8 +1,32 @@
+import { FormEventHandler, useState } from "react";
 import Button from "../components/button";
 import AuthLayout from "../layouts/auth";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function Login() {
-  async function login() {}
+  const [userInfo, setUserInfo] = useState({ email: "", password: "" });
+
+  const router = useRouter();
+
+  const [error, setError] = useState("");
+
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
+    e.preventDefault();
+
+    const res = await signIn("credentials", {
+      email: userInfo.email,
+      password: userInfo.password,
+      callbackUrl: "/dashboard",
+      redirect: false,
+    });
+
+    if (res?.ok) {
+      router.push("/dashboard");
+    } else {
+      setError("Invalid email or password");
+    }
+  };
   return (
     <AuthLayout>
       <div className="flex min-h-full">
@@ -16,7 +40,7 @@ export default function Login() {
 
             <div className="mt-8">
               <div className="mt-6">
-                <form action="#" onSubmit={login} className="space-y-6">
+                <form action="#" onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label
                       htmlFor="email"
@@ -28,10 +52,15 @@ export default function Login() {
                       <input
                         id="email"
                         name="email"
-                        v-model="email"
                         type="email"
                         autoComplete="email"
                         className="block w-full appearance-none rounded-md border border-gray-300 dark:border-gray-500 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        onChange={({ target }) =>
+                          setUserInfo({
+                            ...userInfo,
+                            email: target.value,
+                          })
+                        }
                       />
                     </div>
                   </div>
@@ -50,9 +79,19 @@ export default function Login() {
                         type="password"
                         autoComplete="current-password"
                         className="block w-full appearance-none rounded-md border border-gray-300 dark:border-gray-500 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                        onChange={({ target }) =>
+                          setUserInfo({
+                            ...userInfo,
+                            password: target.value,
+                          })
+                        }
                       />
                     </div>
                   </div>
+
+                  {error && (
+                    <div className="text-red-500 text-sm mt-2">{error}</div>
+                  )}
 
                   <div>
                     <Button
