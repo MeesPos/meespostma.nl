@@ -3,6 +3,7 @@ import Button from "../components/button";
 import AuthLayout from "../layouts/auth";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
+import Input from "../components/input";
 
 export default function Login() {
   const [userInfo, setUserInfo] = useState({ email: "", password: "" });
@@ -41,53 +42,29 @@ export default function Login() {
             <div className="mt-8">
               <div className="mt-6">
                 <form action="#" onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-700 dark:text-white"
-                    >
-                      Email address
-                    </label>
-                    <div className="mt-1">
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        autoComplete="email"
-                        className="block w-full appearance-none rounded-md border border-gray-300 dark:border-gray-500 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                        onChange={({ target }) =>
-                          setUserInfo({
-                            ...userInfo,
-                            email: target.value,
-                          })
-                        }
-                      />
-                    </div>
-                  </div>
+                  <Input
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    onChange={({ target }) =>
+                      setUserInfo({
+                        ...userInfo,
+                        email: target.value,
+                      })
+                    }
+                  />
 
-                  <div className="space-y-1">
-                    <label
-                      htmlFor="password"
-                      className="block text-sm font-medium text-gray-700 dark:text-white"
-                    >
-                      Password
-                    </label>
-                    <div className="mt-1">
-                      <input
-                        id="password"
-                        name="password"
-                        type="password"
-                        autoComplete="current-password"
-                        className="block w-full appearance-none rounded-md border border-gray-300 dark:border-gray-500 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                        onChange={({ target }) =>
-                          setUserInfo({
-                            ...userInfo,
-                            password: target.value,
-                          })
-                        }
-                      />
-                    </div>
-                  </div>
+                  <Input
+                    name="password"
+                    type="password"
+                    autoComplete="current-password"
+                    onChange={({ target }) =>
+                      setUserInfo({
+                        ...userInfo,
+                        password: target.value,
+                      })
+                    }
+                  />
 
                   {error && (
                     <div className="text-red-500 text-sm mt-2">{error}</div>
