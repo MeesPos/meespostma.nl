@@ -2,8 +2,12 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import DashboardLayout from "../layouts/dashboard";
 import Link from "next/link";
 import Button from "../components/button";
+import { useState } from "react";
+import CreateProjectModal from "../components/createProjectModal";
 
 export default function Dashboard() {
+  const [openModal, setOpenModal] = useState(false);
+
   return (
     <DashboardLayout>
       <div className="min-h-full">
@@ -15,10 +19,11 @@ export default function Dashboard() {
                   Projects
                 </h1>
               </div>
-              <div className="mt-4 flex sm:mt-0 sm:ml-4">
-                <Link href="/projects/create">
-                  <Button title="Create" />
-                </Link>
+              <div
+                className="mt-4 flex sm:mt-0 sm:ml-4"
+                onClick={() => setOpenModal(true)}
+              >
+                <Button title="Create" />
               </div>
             </div>
 
@@ -30,13 +35,13 @@ export default function Dashboard() {
                 role="list"
                 className="mt-3 divide-y divide-gray-100 border-t border-gray-200"
               >
-                <li v-for="project in projects" key="project.id">
+                <li key="project.id">
                   <a
                     href="#"
                     className="group flex items-center justify-between px-4 py-4 hover:bg-gray-50 sm:px-6"
                   >
                     <span className="flex items-center space-x-3 truncate">
-                      <span v-text="project.name" />
+                      <span>project.name</span>
                     </span>
 
                     <a
@@ -82,15 +87,13 @@ export default function Dashboard() {
                     <tr key="project.id">
                       <td className="w-full max-w-0 whitespace-nowrap px-6 py-3 text-sm font-medium text-gray-900">
                         <div className="flex items-center space-x-3 lg:pl-2">
-                          <span v-text="project.name" />
+                          <span>project.name</span>
                         </div>
                       </td>
                       <td className="hidden whitespace-nowrap px-6 py-3 text-right text-sm text-gray-500 md:table-cell">
-                        <a
-                          target="_blank"
-                          href="project.url"
-                          v-text="project.urlPlaceholder"
-                        />
+                        <a target="_blank" href="project.url">
+                          project.urlPlaceholder
+                        </a>
                       </td>
                       <td className="whitespace-nowrap px-6 py-3 text-right text-sm font-medium">
                         <a
@@ -117,6 +120,8 @@ export default function Dashboard() {
           </main>
         </div>
       </div>
+
+      <CreateProjectModal isOpen={openModal} setIsOpen={setOpenModal} />
     </DashboardLayout>
   );
 }

@@ -44,6 +44,7 @@ export default function Login() {
                 <form action="#" onSubmit={handleSubmit} className="space-y-6">
                   <Input
                     name="email"
+                    label="Email address"
                     type="email"
                     autoComplete="email"
                     onChange={({ target }) =>
@@ -56,6 +57,7 @@ export default function Login() {
 
                   <Input
                     name="password"
+                    label="Password"
                     type="password"
                     autoComplete="current-password"
                     onChange={({ target }) =>

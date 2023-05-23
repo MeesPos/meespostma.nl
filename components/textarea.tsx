@@ -1,9 +1,8 @@
 import { cn } from "../utils/cn";
 
-export default function Input({
+export default function Textarea({
   name,
   label,
-  type,
   autoComplete,
   inputClassName,
   divClassName,
@@ -12,12 +11,11 @@ export default function Input({
 }: {
   name: string;
   label: string;
-  type: string;
   autoComplete?: string;
   inputClassName?: string;
   divClassName?: string;
   labelClassName?: string;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  onChange: React.ChangeEventHandler<HTMLTextAreaElement>;
 }) {
   return (
     <div className={divClassName}>
@@ -32,10 +30,9 @@ export default function Input({
       </label>
 
       <div className="mt-1">
-        <input
+        <textarea
           id={name}
           name={name}
-          type={type}
           autoComplete={autoComplete}
           className={cn(
             "block w-full appearance-none rounded-md border border-gray-300 dark:border-gray-500 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm",
