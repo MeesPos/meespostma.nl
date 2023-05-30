@@ -14,5 +14,5 @@ export interface Project {
       en: string;
     };
   };
-  logo: File | null;
+  logo: string | Blob | null;
 }

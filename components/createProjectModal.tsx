@@ -28,13 +28,59 @@ export default function CreateProjectModal({
         en: "",
       },
     },
-    logo: null,
+    logo: "",
   });
+
+  const saveImage = async (image: any) => {
+    const formData = new FormData();
+
+    formData.append("file", image);
+    formData.append(
+      "upload_preset",
+      process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET!
+    );
+
+    try {
+      const res = await fetch(
+        "https://api.cloudinary.com/v1_1/df9vthwmq/image/upload",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      const data = await res.json();
+
+      console.log(data.secure_url);
+
+      setProjectInfo({ ...projectInfo, logo: data.secure_url });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
-    console.log(projectInfo);
+    try {
+      saveImage(projectInfo.logo!);
+
+      const res = await fetch("/api/project/create", {
+        method: "POST",
+        body: JSON.stringify(projectInfo),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (res.ok) {
+        console.log("Project created successfully");
+      } else {
+        console.error("Error creating project");
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -72,6 +118,7 @@ export default function CreateProjectModal({
                 <form
                   className="flex space-y-4 flex-col"
                   onSubmit={handleSubmit}
+                  encType="multipart/form-data"
                 >
                   <Input
                     name="title_nl"
