@@ -31,6 +31,8 @@ export default function CreateProjectModal({
     logo: "",
   });
 
+  const [errors, setErrors]: any = useState({});
+
   const saveImage = async (image: any) => {
     const formData = new FormData();
 
@@ -51,8 +53,6 @@ export default function CreateProjectModal({
 
       const data = await res.json();
 
-      console.log(data.secure_url);
-
       setProjectInfo({ ...projectInfo, logo: data.secure_url });
     } catch (error) {
       console.error(error);
@@ -63,7 +63,9 @@ export default function CreateProjectModal({
     e.preventDefault();
 
     try {
-      saveImage(projectInfo.logo!);
+      if (projectInfo.logo) {
+        saveImage(projectInfo.logo!);
+      }
 
       const res = await fetch("/api/project/create", {
         method: "POST",
@@ -74,9 +76,11 @@ export default function CreateProjectModal({
       });
 
       if (res.ok) {
-        console.log("Project created successfully");
-      } else {
-        console.error("Error creating project");
+        setIsOpen(false);
+      } else if (res.status === 422) {
+        const { errors } = await res.json();
+
+        if (errors) setErrors(errors);
       }
     } catch (error) {
       console.error(error);
@@ -133,6 +137,7 @@ export default function CreateProjectModal({
                         },
                       })
                     }
+                    errors={errors["title.nl"]}
                   />
 
                   <Input
@@ -148,6 +153,7 @@ export default function CreateProjectModal({
                         },
                       })
                     }
+                    errors={errors["title.en"]}
                   />
 
                   <Textarea
@@ -162,6 +168,7 @@ export default function CreateProjectModal({
                         },
                       })
                     }
+                    errors={errors["description.nl"]}
                   />
 
                   <Textarea
@@ -176,6 +183,7 @@ export default function CreateProjectModal({
                         },
                       })
                     }
+                    errors={errors["description.en"]}
                   />
 
                   <Input
@@ -191,6 +199,7 @@ export default function CreateProjectModal({
                         },
                       })
                     }
+                    errors={errors["url.href"]}
                   />
 
                   <Input
@@ -209,6 +218,7 @@ export default function CreateProjectModal({
                         },
                       })
                     }
+                    errors={errors["url.placeholder.nl"]}
                   />
 
                   <Input
@@ -227,6 +237,7 @@ export default function CreateProjectModal({
                         },
                       })
                     }
+                    errors={errors["url.placeholder.en"]}
                   />
 
                   <Input
@@ -239,6 +250,7 @@ export default function CreateProjectModal({
                         logo: target.files![0],
                       })
                     }
+                    errors={errors["logo"]}
                   />
 
                   <div className="justify-items-end	grid">

@@ -7,6 +7,7 @@ export default function Textarea({
   inputClassName,
   divClassName,
   labelClassName,
+  errors,
   onChange,
 }: {
   name: string;
@@ -15,6 +16,7 @@ export default function Textarea({
   inputClassName?: string;
   divClassName?: string;
   labelClassName?: string;
+  errors?: Array<string>;
   onChange: React.ChangeEventHandler<HTMLTextAreaElement>;
 }) {
   return (
@@ -41,6 +43,16 @@ export default function Textarea({
           onChange={onChange}
         />
       </div>
+
+      <ul className="mt-1">
+        {errors?.map((error, index) => {
+          return (
+            <li className="text-red-400" key={index}>
+              {error}
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }

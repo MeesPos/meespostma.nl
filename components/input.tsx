@@ -8,6 +8,7 @@ export default function Input({
   inputClassName,
   divClassName,
   labelClassName,
+  errors,
   onChange,
 }: {
   name: string;
@@ -17,6 +18,7 @@ export default function Input({
   inputClassName?: string;
   divClassName?: string;
   labelClassName?: string;
+  errors?: Array<string>;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
 }) {
   return (
@@ -44,6 +46,16 @@ export default function Input({
           onChange={onChange}
         />
       </div>
+
+      <ul className="mt-1">
+        {errors?.map((error, index) => {
+          return (
+            <li className="text-red-400" key={index}>
+              {error}
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }
