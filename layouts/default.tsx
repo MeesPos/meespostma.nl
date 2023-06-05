@@ -70,7 +70,7 @@ export default function DefaultLayout({
             {children}
           </div>
 
-          <ContactSection />
+          {/* <ContactSection /> */}
 
           <Footer />
         </div>
