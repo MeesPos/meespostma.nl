@@ -41,6 +41,7 @@ export default function Textarea({
           name={name}
           autoComplete={autoComplete}
           defaultValue={defaultValue}
+          value={defaultValue}
           rows={rows}
           className={cn(
             "block w-full appearance-none rounded-md border border-gray-300 dark:border-gray-500 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm",

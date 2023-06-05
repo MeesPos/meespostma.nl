@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import Input from "../components/input";
 import { ChangeEvent, useState } from "react";
 import Textarea from "../components/textarea";
+import { toast } from "react-hot-toast";
 
 export default function Contact() {
   const { t } = useTranslation("contact");
@@ -18,6 +19,8 @@ export default function Contact() {
   const [errors, setErrors] = useState<any>({});
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
+    setErrors({});
+
     e.preventDefault();
 
     const res = await fetch("/api/contact", {
@@ -29,10 +32,19 @@ export default function Contact() {
     });
 
     if (res.ok) {
+      toast.success("Your message has been sent!");
+
+      setContactData({
+        name: "",
+        email: "",
+        message: "",
+      });
     } else if (res.status === 422) {
       const { errors } = await res.json();
 
       if (errors) setErrors(errors);
+
+      toast.error("There was an error sending your message.");
     }
   };
 
@@ -60,6 +72,7 @@ export default function Contact() {
                   label="Name"
                   type="text"
                   name="name"
+                  value={contactData.name}
                   onChange={({ target }) =>
                     setContactData({
                       ...contactData,
@@ -73,6 +86,7 @@ export default function Contact() {
                   label="Email"
                   type="text"
                   name="email"
+                  value={contactData.email}
                   onChange={({ target }) =>
                     setContactData({
                       ...contactData,
@@ -86,6 +100,7 @@ export default function Contact() {
                   name="message"
                   label="Message"
                   rows={7}
+                  defaultValue={contactData.message}
                   onChange={({ target }) =>
                     setContactData({
                       ...contactData,
