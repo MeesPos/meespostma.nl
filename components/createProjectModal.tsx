@@ -134,7 +134,7 @@ export default function CreateProjectModal({
       }
 
       if (res.ok) {
-        setIsOpen(false);
+        window.location.reload();
       } else if (res.status === 422) {
         const { errors } = await res.json();
 

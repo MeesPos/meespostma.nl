@@ -53,7 +53,7 @@ export default function Dashboard() {
 
   return (
     <DashboardLayout>
-      <div className="min-h-full">
+      <div className="min-h-full px-6 pt-6 lg:px-8">
         <div className="flex flex-col">
           <main className="flex-1">
             <div className="border-b border-gray-200 py-4 sm:flex sm:items-center sm:justify-between">
