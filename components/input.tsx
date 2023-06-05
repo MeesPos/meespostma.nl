@@ -3,6 +3,7 @@ import { cn } from "../utils/cn";
 export default function Input({
   name,
   label,
+  value,
   type,
   autoComplete,
   inputClassName,
@@ -13,6 +14,7 @@ export default function Input({
 }: {
   name: string;
   label: string;
+  value?: string;
   type: string;
   autoComplete?: string;
   inputClassName?: string;
@@ -37,6 +39,7 @@ export default function Input({
         <input
           id={name}
           name={name}
+          value={value}
           type={type}
           autoComplete={autoComplete}
           className={cn(

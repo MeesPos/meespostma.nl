@@ -22,10 +22,7 @@ export default async function CreateProject(
     },
     url: {
       href: "required|string",
-      placeholder: {
-        nl: "required|string",
-        en: "required|string",
-      },
+      placeholder: "required|string",
     },
     logo: "required|string",
   });
@@ -38,7 +35,7 @@ export default async function CreateProject(
   }
 
   try {
-    await prisma.project.create({
+    await prisma.projects.create({
       data: {
         title: JSON.stringify(project.title),
         description: JSON.stringify(project.description),

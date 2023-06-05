@@ -3,6 +3,7 @@ import { cn } from "../utils/cn";
 export default function Textarea({
   name,
   label,
+  defaultValue,
   autoComplete,
   inputClassName,
   divClassName,
@@ -12,6 +13,7 @@ export default function Textarea({
 }: {
   name: string;
   label: string;
+  defaultValue?: string;
   autoComplete?: string;
   inputClassName?: string;
   divClassName?: string;
@@ -36,6 +38,7 @@ export default function Textarea({
           id={name}
           name={name}
           autoComplete={autoComplete}
+          defaultValue={defaultValue}
           className={cn(
             "block w-full appearance-none rounded-md border border-gray-300 dark:border-gray-500 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm",
             inputClassName

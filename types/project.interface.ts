@@ -1,4 +1,5 @@
 export interface Project {
+  id?: number | undefined;
   title: {
     nl: string;
     en: string;
@@ -9,10 +10,7 @@ export interface Project {
   };
   url: {
     href: string;
-    placeholder: {
-      nl: string;
-      en: string;
-    };
+    placeholder: string;
   };
-  logo: string | Blob | null;
+  logo?: string | Blob | null;
 }
