@@ -282,7 +282,6 @@ export default function CreateProjectModal({
                     errors={errors["url.placeholder"]}
                   />
 
-                  {/* TODO: Sla het logo in een andere useState op en set dan pas het logo in de functie van het opslaan */}
                   <Input
                     name="logo"
                     type="file"
