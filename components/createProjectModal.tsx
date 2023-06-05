@@ -123,7 +123,10 @@ export default function CreateProjectModal({
       } else {
         res = await fetch("/api/projects/create", {
           method: "POST",
-          body: JSON.stringify(projectInfo),
+          body: JSON.stringify({
+            ...projectInfo,
+            logo: imageUrl ?? "",
+          }),
           headers: {
             "Content-Type": "application/json",
           },
