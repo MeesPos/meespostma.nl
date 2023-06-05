@@ -35,6 +35,22 @@ export default function Dashboard() {
     setModalData(undefined);
   };
 
+  const deleteProject = async (id: number) => {
+    const res = await fetch("/api/projects/delete", {
+      method: "POST",
+      body: JSON.stringify({ id }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (res.status === 200) {
+      setProjects(
+        projects.filter((project) => Number(project.id) !== Number(id))
+      );
+    }
+  };
+
   return (
     <DashboardLayout>
       <div className="min-h-full">
@@ -75,7 +91,7 @@ export default function Dashboard() {
 
                         <Link
                           href="#"
-                          className="text-indigo-600 hover:text-indigo-900"
+                          className="text-indigo-600 hover:text-indigo-900 cursor-pointer"
                         >
                           Edit
                         </Link>
@@ -136,20 +152,19 @@ export default function Dashboard() {
                           <td className="whitespace-nowrap px-6 py-3 text-right text-sm font-medium">
                             <p
                               onClick={() => openEditModal(project)}
-                              className="text-indigo-600 hover:text-indigo-900"
+                              className="text-indigo-600 hover:text-indigo-900 cursor-pointer"
                             >
                               Edit
                             </p>
                           </td>
 
                           <td className="whitespace-nowrap px-6 py-3 text-right text-sm font-medium">
-                            <Link
-                              href=""
-                              //   onClick={/** deleteProject(project.id) */}
+                            <p
+                              onClick={() => deleteProject(project.id!)}
                               className="text-red-600 hover:text-red-900 cursor-pointer"
                             >
                               Delete
-                            </Link>
+                            </p>
                           </td>
                         </tr>
                       );
