@@ -1,9 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { Project } from "../../../types/project.interface";
 import Validator from "validatorjs";
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import { supabase } from "../../../lib/supabaseClient";
 
 export default async function UpdateProject(
   req: NextApiRequest,
@@ -36,18 +34,16 @@ export default async function UpdateProject(
 
   if (!project.logo) {
     try {
-      await prisma.projects.update({
-        where: {
-          id: Number(project.id),
-        },
-        data: {
+      await supabase
+        .from("projects")
+        .update({
           title: JSON.stringify(project.title),
           description: JSON.stringify(project.description),
           url: JSON.stringify(project.url),
-        },
-      });
+        })
+        .eq("id", project.id);
 
-      res.status(200).json({ message: "Project created successfully" });
+      res.status(200).json({ message: "Project updated successfully" });
     } catch (error) {
       console.error(error);
 
@@ -55,19 +51,17 @@ export default async function UpdateProject(
     }
   } else {
     try {
-      await prisma.projects.update({
-        where: {
-          id: Number(project.id),
-        },
-        data: {
+      await supabase
+        .from("projects")
+        .update({
           title: JSON.stringify(project.title),
           description: JSON.stringify(project.description),
           url: JSON.stringify(project.url),
           logo: String(project.logo),
-        },
-      });
+        })
+        .eq("id", project.id);
 
-      res.status(200).json({ message: "Project created successfully" });
+      res.status(200).json({ message: "Project updated successfully" });
     } catch (error) {
       console.error(error);
 
