@@ -54,33 +54,28 @@ export default function Home({ projects }: { projects: Array<any> }) {
 
 export async function getStaticProps({ locale }: any) {
   try {
-    const res = await fetch(
-      process.env.NEXT_PUBLIC_API_ROUTES_URL + "/api/projects/get?amount=3"
-    );
-
-    if (!res.ok)
-      return {
-        props: {
-          ...(await serverSideTranslations(locale, [
-            "home",
-            "contact",
-            "pages",
-          ])),
-        },
-      };
+    const projects = await fetchProjects();
 
     return {
       props: {
         ...(await serverSideTranslations(locale, ["home", "contact", "pages"])),
-        projects: await res.json(),
+        projects,
       },
     };
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.error(error);
     return {
       props: {
         ...(await serverSideTranslations(locale, ["home", "contact", "pages"])),
       },
     };
   }
+}
+
+async function fetchProjects() {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_ROUTES_URL}/api/projects/get?amount=3`
+  );
+  if (!res.ok) throw new Error("Failed to fetch projects");
+  return res.json();
 }
