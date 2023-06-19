@@ -17,6 +17,10 @@ export default function Footer() {
       title: t("projects"),
       href: "/projects",
     },
+    {
+      title: t("contact"),
+      href: "/contact",
+    },
   ];
 
   return (
@@ -28,7 +32,7 @@ export default function Footer() {
           {navItems.map((navItem, index) => {
             return (
               <Link key={index} href={navItem.href}>
-                { navItem.title }
+                {navItem.title}
               </Link>
             );
           })}

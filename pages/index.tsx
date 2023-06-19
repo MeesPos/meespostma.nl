@@ -58,7 +58,7 @@ export async function getStaticProps({ locale }: any) {
 
     return {
       props: {
-        ...(await serverSideTranslations(locale, ["home", "contact", "pages"])),
+        ...(await serverSideTranslations(locale, ["home", "pages"])),
         projects,
       },
     };
@@ -66,7 +66,7 @@ export async function getStaticProps({ locale }: any) {
     console.error(error);
     return {
       props: {
-        ...(await serverSideTranslations(locale, ["home", "contact", "pages"])),
+        ...(await serverSideTranslations(locale, ["home", "pages"])),
       },
     };
   }

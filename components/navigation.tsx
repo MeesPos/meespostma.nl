@@ -23,6 +23,10 @@ export default function Navigation() {
       title: t("projects"),
       href: "/projects",
     },
+    {
+      title: t("contact"),
+      href: "/contact",
+    },
   ];
 
   return (
