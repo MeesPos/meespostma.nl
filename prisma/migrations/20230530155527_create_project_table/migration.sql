@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE `Project` (
+CREATE TABLE `Projects` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `title` VARCHAR(191) NOT NULL,
     `description` VARCHAR(191) NOT NULL,
