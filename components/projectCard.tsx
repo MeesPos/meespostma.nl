@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 export default function ProjectCard({ project }: { project: any }) {
   const router = useRouter();
 
-  console.log(router.locale);
   return (
     <Link href={JSON.parse(project.url).href} target="_blank">
       <div className="bg-white rounded-full w-10 h-10 shadow-md relative">
