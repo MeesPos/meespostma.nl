@@ -1,9 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { Project } from "../../../types/project.interface";
 import Validator from "validatorjs";
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import { supabase } from "../../../lib/supabaseClient";
 
 export default async function CreateProject(
   req: NextApiRequest,
@@ -35,14 +33,14 @@ export default async function CreateProject(
   }
 
   try {
-    await prisma.projects.create({
-      data: {
-        title: JSON.stringify(project.title),
-        description: JSON.stringify(project.description),
-        url: JSON.stringify(project.url),
-        logo: String(project.logo),
-      },
+    const { data, error } = await supabase.from("projects").insert({
+      title: JSON.stringify(project.title),
+      description: JSON.stringify(project.description),
+      url: JSON.stringify(project.url),
+      logo: String(project.logo),
     });
+
+    console.log(data, error);
 
     res.status(200).json({ message: "Project created successfully" });
   } catch (error) {
