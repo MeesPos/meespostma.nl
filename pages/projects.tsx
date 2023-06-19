@@ -23,7 +23,7 @@ export default function Project({ projects }: { projects: Array<any> }) {
 
         <div className="mb-16 mt-8 sm:mt-0">
           <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-8 sm:gap-32 mt-8">
-            {projects.map((project) => {
+            {projects?.map((project) => {
               return <ProjectCard project={project} key={project.id} />;
             })}
           </div>
