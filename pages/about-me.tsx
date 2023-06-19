@@ -52,14 +52,37 @@ export default function AboutMe({ projects }: { projects: Array<any> }) {
 }
 
 export async function getStaticProps({ locale }: any) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, [
-        "about-me",
-        "contact",
-        "pages",
-      ])),
-      projects: await getProjects(3),
-    },
-  };
+  try {
+    const projects = await fetchProjects();
+
+    return {
+      props: {
+        ...(await serverSideTranslations(locale, [
+          "about-me",
+          "contact",
+          "pages",
+        ])),
+        projects,
+      },
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      props: {
+        ...(await serverSideTranslations(locale, [
+          "about-me",
+          "contact",
+          "pages",
+        ])),
+      },
+    };
+  }
+}
+
+async function fetchProjects() {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_ROUTES_URL}/api/projects/get?amount=3`
+  );
+  if (!res.ok) throw new Error("Failed to fetch projects");
+  return res.json();
 }
