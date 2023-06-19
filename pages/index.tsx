@@ -1,11 +1,9 @@
-import Image from "next/image";
 import Button from "../components/button";
 import DefaultLayout from "../layouts/default";
 import ProjectCard from "../components/projectCard";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
-import { getProjects } from "../utils/notion";
 
 export default function Home({ projects }: { projects: Array<any> }) {
   const { t } = useTranslation("home");
@@ -55,10 +53,34 @@ export default function Home({ projects }: { projects: Array<any> }) {
 }
 
 export async function getStaticProps({ locale }: any) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ["home", "contact", "pages"])),
-      projects: await getProjects(3),
-    },
-  };
+  try {
+    const res = await fetch(
+      process.env.NEXT_PUBLIC_API_ROUTES_URL + "/api/projects/get?amount=3"
+    );
+
+    if (!res.ok)
+      return {
+        props: {
+          ...(await serverSideTranslations(locale, [
+            "home",
+            "contact",
+            "pages",
+          ])),
+        },
+      };
+
+    return {
+      props: {
+        ...(await serverSideTranslations(locale, ["home", "contact", "pages"])),
+        projects: await res.json(),
+      },
+    };
+  } catch (err) {
+    console.log(err);
+    return {
+      props: {
+        ...(await serverSideTranslations(locale, ["home", "contact", "pages"])),
+      },
+    };
+  }
 }

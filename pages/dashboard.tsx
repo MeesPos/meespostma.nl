@@ -17,7 +17,7 @@ export default function Dashboard() {
     async function getProjects() {
       const res = await fetch("/api/projects/get");
 
-      setProjects((await res.json()).data);
+      setProjects(await res.json());
     }
 
     getProjects();

@@ -53,15 +53,11 @@ export default function Contact() {
       <main className="mx-auto px-6 lg:px-8">
         <div className="sm:my-24">
           <div className="lg:w-4/6 w-full mx-auto">
-            {/* <h2
-              className="text-xl sm:text-4xl font-medium mt-4 sm:mt-0 text-center"
-              dangerouslySetInnerHTML={{ __html: t("title") }}
-            />
+            <h2 className="text-xl sm:text-4xl font-medium mt-4 sm:mt-0 text-center">
+              {t("title")}
+            </h2>
 
-            <p
-              className="mt-6"
-              dangerouslySetInnerHTML={{ __html: t("description") }}
-            /> */}
+            <p className="mt-6">{t("description")}</p>
 
             <div>
               <form
@@ -127,7 +123,7 @@ export default function Contact() {
 export async function getStaticProps({ locale }: any) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["home", "contact", "pages"])),
+      ...(await serverSideTranslations(locale, ["contact", "pages"])),
     },
   };
 }
