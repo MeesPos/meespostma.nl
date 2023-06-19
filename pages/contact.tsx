@@ -1,7 +1,7 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import DefaultLayout from "../layouts/default";
 import Button from "../components/button";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import Input from "../components/input";
 import { useState } from "react";
 import Textarea from "../components/textarea";
