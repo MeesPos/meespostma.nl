@@ -1,7 +1,5 @@
-import { PrismaClient } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
-
-const prisma = new PrismaClient();
+import { supabase } from "../../../lib/supabaseClient";
 
 export default async function DeleteProject(
   req: NextApiRequest,
@@ -17,11 +15,7 @@ export default async function DeleteProject(
   }
 
   try {
-    await prisma.projects.delete({
-      where: {
-        id: Number(projectId),
-      },
-    });
+    await supabase.from("projects").delete().match({ id: projectId });
 
     res.status(200).json({ message: "Project deleted successfully" });
   } catch (error) {
