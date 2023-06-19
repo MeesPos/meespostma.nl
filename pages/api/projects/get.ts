@@ -1,7 +1,6 @@
-import { PrismaClient } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
-
-const prisma = new PrismaClient();
+import { supabase } from "../../../lib/supabaseClient";
+import { PostgrestSingleResponse } from "@supabase/supabase-js";
 
 export default async function getProjects(
   req: NextApiRequest,
@@ -9,14 +8,13 @@ export default async function getProjects(
 ) {
   const { amount } = req.query;
 
-  let projects = [];
+  let projects: any[] | null = [];
 
   if (amount) {
-    projects = await prisma.projects.findMany({
-      take: parseInt(amount as string),
-    });
+    projects = (await supabase.from("projects").select("*").limit(+amount))
+      .data;
   } else {
-    projects = await prisma.projects.findMany();
+    projects = (await supabase.from("projects").select("*")).data;
   }
 
   return res.json(projects);
