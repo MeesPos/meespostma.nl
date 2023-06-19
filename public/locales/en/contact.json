@@ -1,4 +1,12 @@
 {
     "title": "Contact me",
-    "description": "Do you have a question, or do you want to know more about me? Please contact me. Send me an email, or go to my LinkedIn."
+    "description": "Do you have a question, or do you want to know more about me? Please contact me. Send me an email, or go to my LinkedIn.",
+    "success": "Your message has been sent. I will contact you as soon as possible.",
+    "error": "There was an error sending your message.",
+    "form": {
+        "name": "Name",
+        "email": "Email",
+        "message": "Message",
+        "submit": "Send message"
+    }
 }

@@ -1,4 +1,12 @@
 {
-    "dsadas": "Neem contact op",
-    "description": "Heb je een vraag, of wil je meer over mij weten? Neem dan contact met me op. Stuur mij een mail, of ga naar mijn LinkedIn."
+    "title": "Neem contact op",
+    "description": "Heb je een vraag, of wil je meer over mij weten? Neem dan contact met me op. Stuur mij een mail, of ga naar mijn LinkedIn.",
+    "success": "Je bericht is verzonden. Ik neem zo snel mogelijk contact met je op.",
+    "error": "Er is een fout opgetreden bij het verzenden van je bericht.",
+    "form": {
+        "name": "Naam",
+        "email": "E-mailadres",
+        "message": "Bericht",
+        "submit": "Verstuur bericht"
+    }
 }

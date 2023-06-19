@@ -3,7 +3,7 @@ import DefaultLayout from "../layouts/default";
 import Button from "../components/button";
 import { useTranslation } from "react-i18next";
 import Input from "../components/input";
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 import Textarea from "../components/textarea";
 import { toast } from "react-hot-toast";
 
@@ -32,7 +32,7 @@ export default function Contact() {
     });
 
     if (res.ok) {
-      toast.success("Your message has been sent!");
+      toast.success(t("success"));
 
       setContactData({
         name: "",
@@ -44,7 +44,7 @@ export default function Contact() {
 
       if (errors) setErrors(errors);
 
-      toast.error("There was an error sending your message.");
+      toast.error(t("error"));
     }
   };
 
@@ -65,7 +65,7 @@ export default function Contact() {
                 onSubmit={handleSubmit}
               >
                 <Input
-                  label="Name"
+                  label={t("form.name")}
                   type="text"
                   name="name"
                   value={contactData.name}
@@ -79,7 +79,7 @@ export default function Contact() {
                 />
 
                 <Input
-                  label="Email"
+                  label={t("form.email")}
                   type="text"
                   name="email"
                   value={contactData.email}
@@ -93,8 +93,8 @@ export default function Contact() {
                 />
 
                 <Textarea
+                  label={t("form.message")}
                   name="message"
-                  label="Message"
                   rows={7}
                   defaultValue={contactData.message}
                   onChange={({ target }) =>
@@ -107,8 +107,8 @@ export default function Contact() {
                 />
 
                 <Button
+                  title={t("form.submit")}
                   type="submit"
-                  title="Send Message"
                   className="w-full justify-center"
                 />
               </form>
