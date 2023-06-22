@@ -58,7 +58,7 @@ export default function Dashboard() {
           <main className="flex-1">
             <div className="border-b border-gray-200 py-4 sm:flex sm:items-center sm:justify-between">
               <div className="min-w-0 flex-1">
-                <h1 className="text-lg font-medium leading-6 text-gray-900 sm:truncate">
+                <h1 className="text-lg font-medium leading-6 text-gray-900 dark:text-white sm:truncate">
                   Projects
                 </h1>
               </div>
@@ -70,9 +70,11 @@ export default function Dashboard() {
               </div>
             </div>
 
-            <div className="mt-10 sm:hidden">
+            <div className="mt-10 sm:hidden dark:bg-zinc-700 pt-4">
               <div className="px-4 sm:px-6">
-                <h2 className="text-sm font-medium text-gray-900">Projects</h2>
+                <h2 className="text-sm font-medium text-gray-900 dark:text-white">
+                  Projects
+                </h2>
               </div>
               <ul
                 role="list"
@@ -91,7 +93,7 @@ export default function Dashboard() {
 
                         <Link
                           href="#"
-                          className="text-indigo-600 hover:text-indigo-900 cursor-pointer"
+                          className="text-indigo-600 dark:text-indigo-300 hover:text-indigo-900 cursor-pointer"
                         >
                           Edit
                         </Link>
@@ -103,45 +105,45 @@ export default function Dashboard() {
             </div>
 
             <div className="mt-8 hidden sm:block">
-              <div className="inline-block min-w-full border-b border-gray-200 align-middle">
+              <div className="inline-block min-w-full border-b dark:border-gray-500 border-gray-200 align-middle">
                 <table className="min-w-full">
                   <thead>
-                    <tr className="border-t border-gray-200">
+                    <tr className="border-t border-gray-200 dark:border-gray-500">
                       <th
-                        className="border-b border-gray-200 bg-gray-50 px-6 py-3 text-left text-sm font-semibold text-gray-900"
+                        className="border-b border-gray-200 dark:border-gray-500 bg-gray-50 px-6 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white dark:bg-zinc-700"
                         scope="col"
                       >
                         <span className="lg:pl-2">Project</span>
                       </th>
                       <th
-                        className="hidden border-b border-gray-200 bg-gray-50 px-6 py-3 text-right text-sm font-semibold text-gray-900 md:table-cell"
+                        className="hidden border-b border-gray-200 dark:border-gray-500 bg-gray-50 px-6 py-3 text-right text-sm font-semibold text-gray-900 dark:text-white md:table-cell dark:bg-zinc-700"
                         scope="col"
                       >
                         URL
                       </th>
                       <th
-                        className="border-b border-gray-200 bg-gray-50 py-3 pr-6 text-right text-sm font-semibold text-gray-900"
+                        className="border-b border-gray-200 dark:border-gray-500 bg-gray-50 py-3 pr-6 text-right text-sm font-semibold text-gray-900 dark:text-white dark:bg-zinc-700"
                         scope="col"
                       ></th>
 
                       <th
-                        className="border-b border-gray-200 bg-gray-50 py-3 pr-6 text-right text-sm font-semibold text-gray-900"
+                        className="border-b border-gray-200 dark:border-gray-500 bg-gray-50 py-3 pr-6 text-right text-sm font-semibold text-gray-900 dark:text-white dark:bg-zinc-700"
                         scope="col"
                       ></th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-100 bg-white">
+                  <tbody className="divide-y divide-gray-100 dark:bg-zinc-700">
                     {projects.map((project, index) => {
                       return (
                         <tr key={index}>
-                          <td className="w-full max-w-0 whitespace-nowrap px-6 py-3 text-sm font-medium text-gray-900">
+                          <td className="w-full max-w-0 whitespace-nowrap px-6 py-3 text-sm font-medium text-gray-900 dark:text-white">
                             <div className="flex items-center space-x-3 lg:pl-2">
                               <span>
                                 {JSON.parse(String(project.title)).nl}
                               </span>
                             </div>
                           </td>
-                          <td className="hidden whitespace-nowrap px-6 py-3 text-right text-sm text-gray-500 md:table-cell">
+                          <td className="hidden whitespace-nowrap px-6 py-3 text-right text-sm text-gray-500 dark:text-white md:table-cell">
                             <Link
                               target="_blank"
                               href={JSON.parse(String(project.url)).href}
@@ -152,7 +154,7 @@ export default function Dashboard() {
                           <td className="whitespace-nowrap px-6 py-3 text-right text-sm font-medium">
                             <p
                               onClick={() => openEditModal(project)}
-                              className="text-indigo-600 hover:text-indigo-900 cursor-pointer"
+                              className="text-indigo-600 dark:text-indigo-300 hover:text-indigo-900 cursor-pointer"
                             >
                               Edit
                             </p>
@@ -161,7 +163,7 @@ export default function Dashboard() {
                           <td className="whitespace-nowrap px-6 py-3 text-right text-sm font-medium">
                             <p
                               onClick={() => deleteProject(project.id!)}
-                              className="text-red-600 hover:text-red-900 cursor-pointer"
+                              className="text-red-600 dark:text-red-400 hover:text-red-900 cursor-pointer"
                             >
                               Delete
                             </p>
