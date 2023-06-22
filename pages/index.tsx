@@ -12,7 +12,7 @@ export default function Home({ projects }: { projects: Array<any> }) {
     <DefaultLayout
       description={t("seo.description") as string}
       title="Mees Postma"
-      url="meespostma.nl"
+      url={process.env.NEXT_PUBLIC_API_ROUTES_URL!}
     >
       <main className="mx-auto px-6 lg:px-8">
         <div className="sm:my-24">

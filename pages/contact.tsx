@@ -49,7 +49,11 @@ export default function Contact() {
   };
 
   return (
-    <DefaultLayout description="" title="" url="">
+    <DefaultLayout
+      description={t("description")}
+      title={t("contact", { ns: "pages" }) + " | Mees Postma"}
+      url={process.env.NEXT_PUBLIC_API_ROUTES_URL + "/contact"}
+    >
       <main className="mx-auto px-6 lg:px-8">
         <div className="sm:my-24">
           <div className="lg:w-4/6 w-full mx-auto">
