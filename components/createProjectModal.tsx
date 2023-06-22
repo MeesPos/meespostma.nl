@@ -157,7 +157,7 @@ export default function CreateProjectModal({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black bg-opacity-25" />
+          <div className="fixed inset-0 bg-black dark:bg-white bg-opacity-25 dark:bg-opacity-25" />
         </Transition.Child>
         <div className="fixed inset-0 overflow-y-auto">
           <div className="flex min-h-full items-center justify-center p-4 text-center">
@@ -170,10 +170,10 @@ export default function CreateProjectModal({
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+              <Dialog.Panel className="w-full max-w-xl transform overflow-hidden rounded-2xl bg-white dark:bg-zinc-900 p-6 text-left align-middle shadow-xl transition-all">
                 <Dialog.Title
                   as="h3"
-                  className="text-2xl font-bold text-indigo-600 mb-6"
+                  className="text-2xl font-bold dark:text-white text-indigo-600 mb-6"
                 >
                   {modalData ? "Edit Project" : "Create Project"}
                 </Dialog.Title>
